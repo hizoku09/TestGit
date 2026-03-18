@@ -13,4 +13,9 @@ class InputReader {
         final String[] result = line.split("\\s+");
         return result;
     }
+    
+    double readDouble() {
+        final double result = sc.nextDouble();
+        return result;
+    }
 }

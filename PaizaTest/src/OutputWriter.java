@@ -20,6 +20,6 @@ class OutputWriter {
     void printRealNumber(final RealNumber rn) {
         // TODO 自動生成されたメソッド・スタブ
         DecimalFormat df = new DecimalFormat("0.###");
-        out.println(df.format(rn.Number));
+        out.println(df.format(rn.value));
     }
 }

@@ -50,14 +50,13 @@ class Stdout_primer__format_real_number_step1Test {
     @DisplayName("標準入力から 文字列 N を受け取る。N を標準出力する")
     void testprintByRealNumber() {
         try (Scanner sc = new Scanner(System.in)) {
-            // Scanner.nextdouble();
             final InputReader reader = new InputReader(sc);
             final OutputWriter writer = new OutputWriter(System.out);
             final String[] Answer = { "0.813", "99" };
 
             for (String ans : Answer) {
-                final String[] N = reader.readTokensLine();
-                final RealNumber rn = new RealNumber(N[0]);
+                final double N = reader.readDouble();
+                final RealNumber rn = new RealNumber(N);
                 writer.printRealNumber(rn);
                 assertEquals(ans, out.readLine());
             }
