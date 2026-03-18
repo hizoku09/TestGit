@@ -1,19 +1,8 @@
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class PaizaUtil {
-	/**
-	 * 標準入力から文字列を受け取る
-	 * @return String result
-	 */
-	public String getStdinString() {
-		String result;
-		try (Scanner sc = new Scanner(System.in)){
-			result = sc.nextLine();
-		}
-		return result;
-	}
+	
 	/* getStdinString() を実装するときは、 Scanner を別箇所で宣言する。
 	 * それを呼ぶようにする。
 	 * 上記のまま実装すると、 try 句が終わると Scanner で読み込んだ
