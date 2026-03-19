@@ -1,3 +1,4 @@
+package main;
 import java.util.Scanner;
 
 class Stdout_primer__format_real_number_step1 {
@@ -5,11 +6,10 @@ class Stdout_primer__format_real_number_step1 {
     public static void main(String[] args) {
         // TODO 自動生成されたメソッド・スタブ
         try (Scanner sc = new Scanner(System.in)) {
-            final InputReader reader = new InputReader(sc);
-            final OutputWriter writer = new OutputWriter(System.out);
-            final double N = reader.readDouble();
-            final RealNumber rn = new RealNumber(N);
-            writer.printRealNumber(rn);
+            final double N = sc.nextDouble();
+            final IllegalCheck_format_real_number_step1 IllegalChecked_rn = 
+                    new IllegalCheck_format_real_number_step1(N);
+            IllegalChecked_rn.printValue();
         }
     }
 }

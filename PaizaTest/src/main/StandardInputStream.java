@@ -1,3 +1,5 @@
+package main;
+
 import java.io.InputStream;
 
 class StandardInputStream extends InputStream {

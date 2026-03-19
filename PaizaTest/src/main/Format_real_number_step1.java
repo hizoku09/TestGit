@@ -1,3 +1,5 @@
+package main;
+
 class Format_real_number_step1 {
     private static final double MIN = 0.001;
     private static final double MAX = 99.999;

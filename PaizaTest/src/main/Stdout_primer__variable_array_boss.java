@@ -1,3 +1,4 @@
+package main;
 import java.util.Scanner;
 
 class Stdout_primer__variable_array_boss {

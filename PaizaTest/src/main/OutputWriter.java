@@ -1,3 +1,5 @@
+package main;
+
 import java.io.PrintStream;
 import java.text.DecimalFormat;
 
@@ -20,6 +22,6 @@ class OutputWriter {
     void printRealNumber(final RealNumber rn) {
         // TODO 自動生成されたメソッド・スタブ
         DecimalFormat df = new DecimalFormat("0.###");
-        out.println(df.format(rn.value));
+        out.println(df.format(rn.getValue()));
     }
 }
