@@ -1,4 +1,4 @@
-package main;
+package stdout_primer;
 import java.util.Arrays;
 import java.util.List;
 

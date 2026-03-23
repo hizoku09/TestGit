@@ -1,7 +1,7 @@
-package main;
+package stdout_primer;
 import java.util.Scanner;
 
-class Stdout_primer__variable_array_boss {
+class Variable_array_boss {
 
     public static void main(String[] args) {
         // TODO 自動生成されたメソッド・スタブ

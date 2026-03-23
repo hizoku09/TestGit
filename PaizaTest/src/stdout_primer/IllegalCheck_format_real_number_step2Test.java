@@ -1,4 +1,4 @@
-package main;
+package stdout_primer;
 
 import static org.junit.jupiter.api.Assertions.*;
 

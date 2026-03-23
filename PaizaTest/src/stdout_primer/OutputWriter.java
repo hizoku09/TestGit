@@ -1,4 +1,4 @@
-package main;
+package stdout_primer;
 
 import java.io.PrintStream;
 import java.text.DecimalFormat;

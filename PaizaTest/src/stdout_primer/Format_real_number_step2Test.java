@@ -1,4 +1,5 @@
-package main;
+package stdout_primer;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.InputStream;
@@ -10,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class Stdout_primer__format_real_number_step2Test {
+class Format_real_number_step2Test {
 
     private final InputStream originalIn = System.in;
     private final PrintStream originalOut = System.out;
@@ -22,9 +23,6 @@ class Stdout_primer__format_real_number_step2Test {
     void before() {
         System.setIn(in);
         System.setOut(out);
-        for (String n : N) {
-            in.inputln(n);
-        }
     }
 
     @AfterEach
@@ -34,30 +32,35 @@ class Stdout_primer__format_real_number_step2Test {
     }
 
     @Test
-
     @DisplayName("全体テスト")
     void testAll_1() {
-        Stdout_primer__format_real_number_step2.main(null);
+        in.inputln("0.813");
+        Format_real_number_step2.main(null);
         assertEquals("0.813", out.readLine());
     }
 
+    @Test
     void testAll_2() {
-        Stdout_primer__format_real_number_step2.main(null);
+        in.inputln("10000000000.5");
+        Format_real_number_step2.main(null);
         assertEquals("10000000000.5", out.readLine());
-
     }
 
     @Test
     @DisplayName("標準入力から 文字列 N を受け取る。N を実数に変換し、標準出力する")
     void testprintByRealNumber() {
+        for (String n : N) {
+            in.inputln(n);
+        }
+
         try (Scanner sc = new Scanner(System.in)) {
             final OutputWriter writer = new OutputWriter(System.out);
             final String[] Answer = { "0.813", "10000000000.5" };
 
             for (String ans : Answer) {
                 final double N = sc.nextDouble();
-                final IllegalCheck_format_real_number_step2 IllegalChecked_rn = 
-                        new IllegalCheck_format_real_number_step2(N);
+                final IllegalCheck_format_real_number_step2 IllegalChecked_rn = new IllegalCheck_format_real_number_step2(
+                        N);
                 writer.printRealNumber(IllegalChecked_rn);
                 assertEquals(ans, out.readLine());
             }

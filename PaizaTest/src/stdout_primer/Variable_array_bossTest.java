@@ -1,4 +1,4 @@
-package main;
+package stdout_primer;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.InputStream;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class Stdout_primer__variable_array_bossTest {
+class Variable_array_bossTest {
     private final InputStream originalIn = System.in;
     private final PrintStream originalOut = System.out;
     private final StandardInputStream in = new StandardInputStream();
@@ -37,7 +37,7 @@ class Stdout_primer__variable_array_bossTest {
     @Test
     @DisplayName("全体テスト")
     void testAll() {
-        Stdout_primer__variable_array_boss.main(null);
+        Variable_array_boss.main(null);
         String[] Answer = { "1 2", "3 4 5 6 7 8", "9", "10" };
         for (String ans : Answer) {
             assertEquals(ans, out.readLine());

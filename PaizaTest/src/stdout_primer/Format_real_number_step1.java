@@ -1,7 +1,7 @@
-package main;
+package stdout_primer;
 import java.util.Scanner;
 
-class Stdout_primer__format_real_number_step1 {
+class Format_real_number_step1 {
 
     public static void main(String[] args) {
         // TODO 自動生成されたメソッド・スタブ

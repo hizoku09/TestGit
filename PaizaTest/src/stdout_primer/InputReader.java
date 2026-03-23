@@ -1,4 +1,4 @@
-package main;
+package stdout_primer;
 
 import java.util.Scanner;
 
@@ -13,11 +13,6 @@ class InputReader {
         final String line = sc.nextLine().trim();
         if (line.isEmpty()) return new String[0];
         final String[] result = line.split("\\s+");
-        return result;
-    }
-    
-    double readDouble() {
-        final double result = sc.nextDouble();
         return result;
     }
 }

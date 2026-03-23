@@ -1,4 +1,4 @@
-package main;
+package stdout_primer;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.InputStream;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class Stdout_primer__format_real_number_step1Test {
+class Format_real_number_step1Test {
 
     private final InputStream originalIn = System.in;
     private final PrintStream originalOut = System.out;
@@ -37,12 +37,12 @@ class Stdout_primer__format_real_number_step1Test {
 
     @DisplayName("全体テスト")
     void testAll_1() {
-        Stdout_primer__format_real_number_step1.main(null);
+        Format_real_number_step1.main(null);
         assertEquals("0.813", out.readLine());
     }
     
     void testAll_2() {
-        Stdout_primer__format_real_number_step1.main(null);
+        Format_real_number_step1.main(null);
         assertEquals("99", out.readLine());
 
     }

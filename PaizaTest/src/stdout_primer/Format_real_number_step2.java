@@ -1,8 +1,10 @@
-package main;
+package stdout_primer;
 
+/*import java.io.PrintStream;
+import java.text.DecimalFormat;*/
 import java.util.Scanner;
 
-class Stdout_primer__format_real_number_step2 {
+class Format_real_number_step2 {
 
     public static void main(String[] args) {
         // TODO 自動生成されたメソッド・スタブ
@@ -27,12 +29,13 @@ class Stdout_primer__format_real_number_step2 {
  * 
  * void printRealNumber(final RealNumber rn) { // TODO 自動生成されたメソッド・スタブ
  * DecimalFormat df = new DecimalFormat("0.###");
- * out.println(df.format(rn.value)); } }
+ * out.println(df.format(rn.getValue())); } }
  * 
- * interface RealNumber { void IllegalCheck(final double value); double
- * getValue(); }
+ * interface RealNumber { void IllegalCheck(final double value);
  * 
- * class IllegalCheck_format_real_number_step2 implements RealNumber{ private
+ * double getValue(); }
+ * 
+ * class IllegalCheck_format_real_number_step2 implements RealNumber { private
  * static final double MAX = 999999999999.999; private static final double MIN =
  * 0.001; private final double value;
  * 
