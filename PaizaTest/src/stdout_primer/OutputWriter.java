@@ -19,9 +19,9 @@ class OutputWriter {
         out.println();
     }
 
-    void printRealNumber(final RealNumber rn) {
+    void printRealNumber(final RealNumber_For_Step1 RealNumber) {
         // TODO 自動生成されたメソッド・スタブ
         DecimalFormat df = new DecimalFormat("0.###");
-        out.println(df.format(rn.getValue()));
+        out.println(df.format(RealNumber.value));
     }
 }
