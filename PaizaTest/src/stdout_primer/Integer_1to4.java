@@ -1,12 +1,12 @@
 package stdout_primer;
 
-class Integer_For_Step4 {
+class Integer_1to4 {
 
     private static final int MAX = 5;
     private static final int MIN = 1;
     final int value;
 
-    Integer_For_Step4(final int value) {
+    Integer_1to4(final int value) {
         illegalcheck(value);
         this.value = value;
     }

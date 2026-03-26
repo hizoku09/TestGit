@@ -1,5 +1,4 @@
 package stdout_primer;
-
 //import java.io.PrintStream;
 import java.util.Scanner;
 
