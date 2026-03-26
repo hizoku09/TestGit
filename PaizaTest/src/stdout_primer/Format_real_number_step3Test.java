@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -54,9 +53,9 @@ class Format_real_number_step3Test {
         assertEquals("3.142", out.readLine());
     }
 
-    @Disabled
     @Test
-    @DisplayName("標準入力から 文字列 N を受け取る。N を実数に変換し、標準出力する")
+    @DisplayName("標準入力から 文字列 N を受け取る。N を実数に変換し、標準出力する"
+            + "小数点第三位まで出力する。N の小数部が小数第三位に満たない場合は 0 で埋める")
     void testprintByRealNumber() {
         for (String n : N) {
             in.inputln(n);
@@ -70,27 +69,10 @@ class Format_real_number_step3Test {
                 final double N = sc.nextDouble();
                 final RealNumber_For_Step3 RealNumber = new RealNumber_For_Step3(N);
 
-                writer.printRealNumber(RealNumber);
+                writer.print_DecimalplacesChecked_RealNumber(RealNumber);
                 assertEquals(ans, out.readLine());
             }
         }
-    }
-
-    @Test
-    @DisplayName("小数点第三位まで出力する。N の小数部が小数第三位に満たない場合は 0 で埋める")
-    void testprintValue() {
-        final OutputWriter_ForStep3 writer = new OutputWriter_ForStep3(System.out);
-        final double[] N = { 0.813, 8.13, 3.141692 };
-        RealNumber_For_Step3 RealNumber1 = new RealNumber_For_Step3(N[0]);
-        RealNumber_For_Step3 RealNumber2 = new RealNumber_For_Step3(N[1]);
-        RealNumber_For_Step3 RealNumber3 = new RealNumber_For_Step3(N[2]);
-        writer.printRealNumber(RealNumber1);
-        writer.printRealNumber(RealNumber2);
-        writer.printRealNumber(RealNumber3);
-
-        assertEquals("0.813", out.readLine());
-        assertEquals("8.130", out.readLine());
-        assertEquals("3.142", out.readLine());
     }
 
 }

@@ -14,7 +14,7 @@ class Format_real_number_step3 {
             final OutputWriter_ForStep3 writer = new OutputWriter_ForStep3(System.out);
             final double N = sc.nextDouble();
             final RealNumber_For_Step3 RealNumber = new RealNumber_For_Step3(N);
-            writer.printRealNumber(RealNumber);
+            writer.print_DecimalplacesChecked_RealNumber(RealNumber);
         }
     }
 }

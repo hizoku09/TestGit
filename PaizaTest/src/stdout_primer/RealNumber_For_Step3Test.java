@@ -18,7 +18,7 @@ class RealNumber_For_Step3Test {
 
         assertEquals(0.813, RealNumber1.value);
         assertEquals(8.13, RealNumber2.value);
-        assertEquals(3.142, RealNumber3.value);
+        assertEquals(3.141692, RealNumber3.value);
     }
 
     @Test

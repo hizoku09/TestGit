@@ -9,11 +9,10 @@ class Format_real_number_step2 {
     public static void main(String[] args) {
         // TODO 自動生成されたメソッド・スタブ
         try (Scanner sc = new Scanner(System.in)) {
-            final OutputWriter writer = new OutputWriter(System.out);
+            final OutputWriter_ForStep2 writer = new OutputWriter_ForStep2(System.out);
             final double N = sc.nextDouble();
-            final IllegalCheck_format_real_number_step2 IllegalChecked_rn = new IllegalCheck_format_real_number_step2(
-                    N);
-            writer.printRealNumber(IllegalChecked_rn);
+            final RealNumber_For_Step2 RealNumber = new RealNumber_For_Step2(N);
+            writer.print_RealNumber(RealNumber);
         }
     }
 }

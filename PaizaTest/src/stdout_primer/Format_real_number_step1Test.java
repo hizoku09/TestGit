@@ -56,9 +56,8 @@ class Format_real_number_step1Test {
 
             for (String ans : Answer) {
                 final double N = sc.nextDouble();
-                final IllegalCheck_format_real_number_step1 IllegalChecked_rn = 
-                        new IllegalCheck_format_real_number_step1(N);
-                writer.printRealNumber(IllegalChecked_rn);
+                final RealNumber_For_Step1 RealNumber = new RealNumber_For_Step1(N);
+                writer.printRealNumber(RealNumber);
                 assertEquals(ans, out.readLine());
             }
         }

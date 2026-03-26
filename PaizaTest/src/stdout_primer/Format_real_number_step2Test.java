@@ -54,14 +54,13 @@ class Format_real_number_step2Test {
         }
 
         try (Scanner sc = new Scanner(System.in)) {
-            final OutputWriter writer = new OutputWriter(System.out);
+            final OutputWriter_ForStep2 writer = new OutputWriter_ForStep2(System.out);
             final String[] Answer = { "0.813", "10000000000.5" };
 
             for (String ans : Answer) {
                 final double N = sc.nextDouble();
-                final IllegalCheck_format_real_number_step2 IllegalChecked_rn = new IllegalCheck_format_real_number_step2(
-                        N);
-                writer.printRealNumber(IllegalChecked_rn);
+                final RealNumber_For_Step2 RealNumber = new RealNumber_For_Step2(N);
+                writer.print_RealNumber(RealNumber);
                 assertEquals(ans, out.readLine());
             }
         }

@@ -1,7 +1,6 @@
 package stdout_primer;
 
 import java.io.PrintStream;
-import java.text.DecimalFormat;
 
 class OutputWriter_ForStep3 {
     private final PrintStream out;
@@ -10,9 +9,7 @@ class OutputWriter_ForStep3 {
         this.out = out;
     }
 
-    void printRealNumber(final RealNumber_For_Step3 RealNumber) {
-        // TODO 自動生成されたメソッド・スタブ
-        DecimalFormat df = new DecimalFormat("0.000");
-        out.println(df.format(RealNumber.value));
+    void print_DecimalplacesChecked_RealNumber(final RealNumber_For_Step3 RealNumber) {
+        out.printf("%.3f\n", RealNumber.value);
     }
 }
