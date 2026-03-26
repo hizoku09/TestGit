@@ -1,17 +1,17 @@
 package stdout_primer;
 
-class RealNumber_For_Step1 {
+class Integer_For_Step4 {
 
-    private static final double MAX = 99.999;
-    private static final double MIN = 0.001;
-    final double value;
-    
-    RealNumber_For_Step1(final double value) {
+    private static final int MAX = 5;
+    private static final int MIN = 1;
+    final int value;
+
+    Integer_For_Step4(final int value) {
         illegalcheck(value);
         this.value = value;
     }
-    
-    void illegalcheck(final double value) {
+
+    void illegalcheck(final int value) {
         if (value < MIN) {
             throw new IllegalArgumentException("数値は " + MIN + " 以上で入力してください。");
         }

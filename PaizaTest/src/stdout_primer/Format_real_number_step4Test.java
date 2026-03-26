@@ -11,13 +11,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class Format_real_number_step3Test {
+class Format_real_number_step4Test {
 
     private final InputStream originalIn = System.in;
     private final PrintStream originalOut = System.out;
     private final StandardInputStream in = new StandardInputStream();
     private final StandardOutputStream out = new StandardOutputStream();
-    private final String[] N = { "0.813", "8.13", "3.141692" };
+    private final String[] N_M = { "0.813 1", "0.813 2" };
 
     @BeforeEach
     void before() {
