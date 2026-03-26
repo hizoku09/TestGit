@@ -24,4 +24,13 @@ class OutputWriter {
         DecimalFormat df = new DecimalFormat("0.###");
         out.println(df.format(RealNumber.value));
     }
+    
+    void print_RealNumber(final RealNumber_For_Step2 RealNumber) {
+        DecimalFormat df = new DecimalFormat("0.###");
+        out.println(df.format(RealNumber.value));
+    }
+    
+    void print_DecimalplacesChecked_RealNumber(final RealNumber_0_001to99_999999 RealNumber) {
+        out.printf("%.3f\n", RealNumber.value);
+    }
 }

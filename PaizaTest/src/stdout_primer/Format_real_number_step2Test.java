@@ -54,7 +54,7 @@ class Format_real_number_step2Test {
         }
 
         try (Scanner sc = new Scanner(System.in)) {
-            final OutputWriter_ForStep2 writer = new OutputWriter_ForStep2(System.out);
+            final OutputWriter writer = new OutputWriter(System.out);
             final String[] Answer = { "0.813", "10000000000.5" };
 
             for (String ans : Answer) {

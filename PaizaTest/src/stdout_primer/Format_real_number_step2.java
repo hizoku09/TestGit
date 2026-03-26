@@ -9,7 +9,7 @@ class Format_real_number_step2 {
     public static void main(String[] args) {
         // TODO 自動生成されたメソッド・スタブ
         try (Scanner sc = new Scanner(System.in)) {
-            final OutputWriter_ForStep2 writer = new OutputWriter_ForStep2(System.out);
+            final OutputWriter writer = new OutputWriter(System.out);
             final double N = sc.nextDouble();
             final RealNumber_For_Step2 RealNumber = new RealNumber_For_Step2(N);
             writer.print_RealNumber(RealNumber);

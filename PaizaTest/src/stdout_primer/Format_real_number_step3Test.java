@@ -62,7 +62,7 @@ class Format_real_number_step3Test {
         }
 
         try (Scanner sc = new Scanner(System.in)) {
-            final OutputWriter_ForStep3 writer = new OutputWriter_ForStep3(System.out);
+            final OutputWriter writer = new OutputWriter(System.out);
             final String[] Answer = { "0.813", "8.130", "3.142" };
 
             for (String ans : Answer) {
