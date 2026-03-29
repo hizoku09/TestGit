@@ -12,8 +12,8 @@ class NaturalNumber_1to100Test {
     void testIllegalCheck_Integer() {
         final int Q = 4;
 
-        NaturalNumber_1to100 Integer = new NaturalNumber_1to100(Q);
-        assertEquals(Q, Integer.value);
+        NaturalNumber_1to100 naturalNumber = new NaturalNumber_1to100(Q);
+        assertEquals(Q, naturalNumber.value);
     }
 
     @Test
@@ -22,10 +22,10 @@ class NaturalNumber_1to100Test {
         final int[] Q = { 0, 101 };
 
         assertThrows(IllegalArgumentException.class, () -> {
-            NaturalNumber_1to100 Integer1 = new NaturalNumber_1to100(Q[0]);
+            NaturalNumber_1to100 naturalNumber1 = new NaturalNumber_1to100(Q[0]);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            NaturalNumber_1to100 Integer2 = new NaturalNumber_1to100(Q[1]);
+            NaturalNumber_1to100 naturalNumber2 = new NaturalNumber_1to100(Q[1]);
         });
     }
 

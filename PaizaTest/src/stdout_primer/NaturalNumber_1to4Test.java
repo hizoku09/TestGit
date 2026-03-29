@@ -13,8 +13,8 @@ class NaturalNumber_1to4Test {
         final int[] M = { 1, 2, 3, 4 };
 
         for (int m : M) {
-            NaturalNumber_1to4 Integer = new NaturalNumber_1to4(m);
-            assertEquals(m, Integer.value);
+            NaturalNumber_1to4 naturalNumber = new NaturalNumber_1to4(m);
+            assertEquals(m, naturalNumber.value);
         }
     }
 
@@ -24,10 +24,10 @@ class NaturalNumber_1to4Test {
         final int[] M = { 0, 5 };
 
         assertThrows(IllegalArgumentException.class, () -> {
-            NaturalNumber_1to4 Integer1 = new NaturalNumber_1to4(M[0]);
+            NaturalNumber_1to4 naturalNumber1 = new NaturalNumber_1to4(M[0]);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            NaturalNumber_1to4 Integer2 = new NaturalNumber_1to4(M[1]);
+            NaturalNumber_1to4 naturallNumber2 = new NaturalNumber_1to4(M[1]);
         });
     }
 
