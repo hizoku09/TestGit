@@ -1,12 +1,12 @@
 package stdout_primer;
 
-class RealNumber_0_001to99_999999 {
+class RealNumber_greater0_001_under99_999999 {
 
     private static final double MAX = 99.999999;
     private static final double MIN = 0.001;
     final double value;
     
-    RealNumber_0_001to99_999999(final double value) {
+    RealNumber_greater0_001_under99_999999(final double value) {
         illegalcheck(value);
         this.value = value;
     }

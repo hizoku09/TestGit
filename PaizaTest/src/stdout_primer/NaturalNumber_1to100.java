@@ -1,12 +1,12 @@
 package stdout_primer;
 
-class Integer_1to4 {
+class NaturalNumber_1to100 {
 
-    private static final int MAX = 5;
+    private static final int MAX = 101;
     private static final int MIN = 1;
     final int value;
 
-    Integer_1to4(final int value) {
+    NaturalNumber_1to100(final int value) {
         illegalcheck(value);
         this.value = value;
     }

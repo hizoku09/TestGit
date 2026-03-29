@@ -12,8 +12,8 @@ class Format_real_number_step4 {
             final double N = sc.nextDouble();
             final int M = sc.nextInt();
 
-            final RealNumber_0_001to99_999999 RealNumber = new RealNumber_0_001to99_999999(N);
-            final Integer_1to4 Integer = new Integer_1to4(M);
+            final RealNumber_greater0_001_under99_999999 RealNumber = new RealNumber_greater0_001_under99_999999(N);
+            final NaturalNumber_1to4 Integer = new NaturalNumber_1to4(M);
 
             writer.print_DecimalplacesChecked_RealNumber(RealNumber, Integer);
         }

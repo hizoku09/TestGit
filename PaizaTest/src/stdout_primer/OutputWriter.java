@@ -30,7 +30,7 @@ class OutputWriter {
         out.println(df.format(RealNumber.value));
     }
     
-    void print_DecimalplacesChecked_RealNumber(final RealNumber_0_001to99_999999 RealNumber) {
+    void print_DecimalplacesChecked_RealNumber(final RealNumber_greater0_001_under99_999999 RealNumber) {
         out.printf("%.3f\n", RealNumber.value);
     }
 }

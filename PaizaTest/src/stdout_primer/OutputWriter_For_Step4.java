@@ -9,8 +9,9 @@ class OutputWriter_For_Step4 {
         this.out = out;
     }
     
-    void print_DecimalplacesChecked_RealNumber(final RealNumber_0_001to99_999999 RealNumber, final Integer_1to4 Integer) {
-        final int decimalplaces = Integer.value;
-        out.printf("%." + decimalplaces + "f\n", RealNumber.value);
+    void print_DecimalplacesChecked_RealNumber(final RealNumber_greater0_001_under99_999999 realNumber,
+            final NaturalNumber_1to4 naturalNumber) {
+        final int decimalplaces = naturalNumber.value;
+        out.printf("%." + decimalplaces + "f\n", realNumber.value);
     }
 }

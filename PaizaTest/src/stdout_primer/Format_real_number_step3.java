@@ -9,7 +9,7 @@ class Format_real_number_step3 {
         try (Scanner sc = new Scanner(System.in)) {
             final OutputWriter writer = new OutputWriter(System.out);
             final double N = sc.nextDouble();
-            final RealNumber_0_001to99_999999 RealNumber = new RealNumber_0_001to99_999999(N);
+            final RealNumber_greater0_001_under99_999999 RealNumber = new RealNumber_greater0_001_under99_999999(N);
             writer.print_DecimalplacesChecked_RealNumber(RealNumber);
         }
     }

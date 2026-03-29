@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class Integer_1to4Test {
+class NaturalNumber_1to4Test {
 
     @Test
     @DisplayName("int 型変数 M を受け取る")
@@ -13,7 +13,7 @@ class Integer_1to4Test {
         final int[] M = { 1, 2, 3, 4 };
 
         for (int m : M) {
-            Integer_1to4 Integer = new Integer_1to4(m);
+            NaturalNumber_1to4 Integer = new NaturalNumber_1to4(m);
             assertEquals(m, Integer.value);
         }
     }
@@ -24,10 +24,10 @@ class Integer_1to4Test {
         final int[] M = { 0, 5 };
 
         assertThrows(IllegalArgumentException.class, () -> {
-            Integer_1to4 Integer1 = new Integer_1to4(M[0]);
+            NaturalNumber_1to4 Integer1 = new NaturalNumber_1to4(M[0]);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            Integer_1to4 Integer2 = new Integer_1to4(M[1]);
+            NaturalNumber_1to4 Integer2 = new NaturalNumber_1to4(M[1]);
         });
     }
 
