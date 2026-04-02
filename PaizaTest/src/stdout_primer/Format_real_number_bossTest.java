@@ -11,6 +11,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import valueobjects.Constrained_integer_object;
+import valueobjects.IntConstraint;
+import valueobjects.IntRange;
+
 class Format_real_number_bossTest {
 
     private final InputStream originalIn = System.in;
@@ -57,9 +61,12 @@ class Format_real_number_bossTest {
         try (Scanner sc = new Scanner(System.in)) {
             final OutputWriter_For_Step4 writer = new OutputWriter_For_Step4(System.out);
             final int Q = sc.nextInt();
-            final NaturalNumber_1to100 Q_NaturalNumber = new NaturalNumber_1to100(Q);
+            
+            final IntConstraint oneToFour = new IntRange(1, 5);
+            final Constrained_integer_object naturalNumberOneToHundred = 
+                    new Constrained_integer_object(Q, oneToFour);
 
-            for (int i = 0; i < Q_NaturalNumber.value; i++) {
+            for (int i = 0; i < naturalNumberOneToHundred.getValue(); i++) {
                 final double N = sc.nextDouble();
                 final int M = sc.nextInt();
 
