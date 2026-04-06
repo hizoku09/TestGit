@@ -6,7 +6,7 @@ public final class IntRange implements IntConstraint{
     
     public IntRange(final int minInclusive, final int maxExclusive) {
         if (minInclusive >= maxExclusive) {
-            throw new IllegalArgumentException("最小値が最大値以上に指定されています。");
+            throw new IllegalArgumentException("最小値は最大値以下に指定してください。");
         }
         this.minInclusive = minInclusive;
         this.maxExclusive = maxExclusive;
