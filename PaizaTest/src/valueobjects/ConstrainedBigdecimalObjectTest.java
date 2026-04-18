@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class Constrained_bigdecimal_objectTest {
+class ConstrainedBigdecimalObjectTest {
 
     @Test
     @DisplayName("BigDecimal 型変数 N を受け取る")
@@ -17,7 +17,7 @@ class Constrained_bigdecimal_objectTest {
                 new BigDecimal(99.999999));
 
         for (BigDecimal n : N) {
-            final Constrained_bigdecimal_object realNumberGreater0_001Under99_999999 = new Constrained_bigdecimal_object(
+            final ConstrainedBigdecimalObject realNumberGreater0_001Under99_999999 = new ConstrainedBigdecimalObject(
                     n, Greater0_001Under99_999999);
 
             assertEquals(n, realNumberGreater0_001Under99_999999.getValue());
@@ -32,11 +32,11 @@ class Constrained_bigdecimal_objectTest {
                 new BigDecimal(99.999999));
 
         assertThrows(IllegalArgumentException.class, () -> {
-            Constrained_bigdecimal_object realNumber1 = new Constrained_bigdecimal_object(N[0],
+            ConstrainedBigdecimalObject realNumber1 = new ConstrainedBigdecimalObject(N[0],
                     Greater0_001Under99_999999);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            Constrained_bigdecimal_object realNumber2 = new Constrained_bigdecimal_object(N[1],
+            ConstrainedBigdecimalObject realNumber2 = new ConstrainedBigdecimalObject(N[1],
                     Greater0_001Under99_999999);
         });
     }

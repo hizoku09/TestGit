@@ -6,17 +6,24 @@ import valueobjects.ConstrainedIntegerObject;
 import valueobjects.IntConstraint;
 import valueobjects.IntRange;
 
-class Step1 {
+class Step3 {
+
     public static void main(String[] args) {
         // TODO 自動生成されたメソッド・スタブ
         try (Scanner sc = new Scanner(System.in)) {
             final OutputWriter writer = new OutputWriter(System.out);
-            final int N = sc.nextInt();
-            final IntConstraint oneToThousand = new IntRange(0, 1000);
-            final ConstrainedIntegerObject naturalNumber = new ConstrainedIntegerObject(N, oneToThousand);
+            final IntConstraint zeroTo9999 = new IntRange(0, 10000);
+            final ConstrainedIntegerObject N = new ConstrainedIntegerObject(sc.nextInt(), zeroTo9999);
+            int M[] = new int[N.getValue()];
+            for (int i = 0; i < N.getValue(); i++) {
+                M[i] = sc.nextInt();
+            }
 
-            writer.printNaturalNumber3Digits(naturalNumber);
-
+            final IntConstraint zeroTo999 = new IntRange(0, 1000);
+            for (int i = 0; i < N.getValue(); i++) {
+                final ConstrainedIntegerObject m = new ConstrainedIntegerObject(M[i], zeroTo999);
+                writer.printNaturalNumber3Digits(m);
+            }
         }
     }
 
@@ -33,6 +40,13 @@ class Step1 {
  * digits = String.valueOf(N).length();
  * 
  * for (int i = 0; i < ConstrainedDigits - digits; i++) { out.print(" "); }
+ * out.printf("%d\n", N); }
+ * 
+ * void printNaturalNumber3DigitsByZero(final ConstrainedIntegerObject
+ * naturalNumber) { // TODO 自動生成されたメソッド・スタブ final int N =
+ * naturalNumber.getValue(); final int digits = String.valueOf(N).length();
+ * 
+ * for (int i = 0; i < ConstrainedDigits - digits; i++) { out.printf("0"); }
  * out.printf("%d\n", N); } }
  * 
  * interface IntConstraint { void validate(final int value); }

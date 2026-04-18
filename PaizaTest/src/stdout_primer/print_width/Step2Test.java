@@ -15,7 +15,7 @@ import valueobjects.ConstrainedIntegerObject;
 import valueobjects.IntConstraint;
 import valueobjects.IntRange;
 
-class Step1Test {
+class Step2Test {
 
     private final InputStream originalIn = System.in;
     private final PrintStream originalOut = System.out;
@@ -23,7 +23,7 @@ class Step1Test {
     private final StandardOutputStream out = new StandardOutputStream();
 
     private final String[] N = { "813", "12", "0" };
-    private final String[] Answer = { "813", " 12", "  0" };
+    private final String[] Answer = { "813", "012", "000" };
 
     @BeforeEach
     void before() {
@@ -42,14 +42,14 @@ class Step1Test {
     void testAll_1() {
         for (int i = 0; i < N.length; i++) {
             in.inputln(N[i]);
-            Step1.main(null);
+            Step2.main(null);
             assertEquals(Answer[i], out.readLine());
         }
-            
+
     }
 
     @Test
-    @DisplayName("自然数 N が与えられます。N が 3 けたになるよう数値の前に半角スペースを埋めて出力してください。")
+    @DisplayName("自然数 N が与えられます。N が 3 けたになるよう数値の前に 0 を埋めて出力してください。")
     void testPrintNaturalNumber() {
         for (String input : N) {
             in.inputln(input);
@@ -62,7 +62,7 @@ class Step1Test {
                 final IntConstraint oneToThousand = new IntRange(0, 1000);
                 final ConstrainedIntegerObject naturalNumber = new ConstrainedIntegerObject(N, oneToThousand);
 
-                writer.printNaturalNumber3Digits(naturalNumber);
+                writer.printNaturalNumber3DigitsByZero(naturalNumber);
 
                 assertEquals(answer, out.readLine());
             }

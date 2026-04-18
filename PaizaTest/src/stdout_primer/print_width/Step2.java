@@ -1,12 +1,19 @@
 package stdout_primer.print_width;
 
+//import java.io.PrintStream;
+//import java.util.Objects;
 import java.util.Scanner;
 
 import valueobjects.ConstrainedIntegerObject;
 import valueobjects.IntConstraint;
 import valueobjects.IntRange;
 
-class Step1 {
+//import valueobjects.ConstrainedIntegerObject;
+//import valueobjects.IntConstraint;
+//import valueobjects.IntRange;
+
+class Step2 {
+
     public static void main(String[] args) {
         // TODO 自動生成されたメソッド・スタブ
         try (Scanner sc = new Scanner(System.in)) {
@@ -15,11 +22,10 @@ class Step1 {
             final IntConstraint oneToThousand = new IntRange(0, 1000);
             final ConstrainedIntegerObject naturalNumber = new ConstrainedIntegerObject(N, oneToThousand);
 
-            writer.printNaturalNumber3Digits(naturalNumber);
+            writer.printNaturalNumber3DigitsByZero(naturalNumber);
 
         }
     }
-
 }
 
 /*
@@ -33,11 +39,18 @@ class Step1 {
  * digits = String.valueOf(N).length();
  * 
  * for (int i = 0; i < ConstrainedDigits - digits; i++) { out.print(" "); }
+ * out.printf("%d\n", N); }
+ * 
+ * void printNaturalNumber3DigitsByZero(final ConstrainedIntegerObject
+ * naturalNumber) { // TODO 自動生成されたメソッド・スタブ final int N =
+ * naturalNumber.getValue(); final int digits = String.valueOf(N).length();
+ * 
+ * for (int i = 0; i < ConstrainedDigits - digits; i++) { out.printf("0"); }
  * out.printf("%d\n", N); } }
  * 
  * interface IntConstraint { void validate(final int value); }
  * 
- * final class IntRange implements IntConstraint{ private final int
+ * final class IntRange implements IntConstraint { private final int
  * minInclusive; private final int maxExclusive;
  * 
  * public IntRange(final int minInclusive, final int maxExclusive) { if

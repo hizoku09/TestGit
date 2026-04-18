@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class Constrained_integer_objectTest {
+class ConstrainedIntegerObjectTest {
 
     @Test
     @DisplayName("int 型変数 Q を受け取る")
@@ -14,8 +14,8 @@ class Constrained_integer_objectTest {
         
         final IntConstraint oneToHundred = new IntRange(1, 101);
 
-        final Constrained_integer_object naturalNumberOneToHundred = 
-                new Constrained_integer_object(Q, oneToHundred);
+        final ConstrainedIntegerObject naturalNumberOneToHundred = 
+                new ConstrainedIntegerObject(Q, oneToHundred);
 
         assertEquals(Q, naturalNumberOneToHundred.getValue());
     }
@@ -28,10 +28,10 @@ class Constrained_integer_objectTest {
         final IntConstraint oneToHundred = new IntRange(1, 101);
 
         assertThrows(IllegalArgumentException.class, () -> {
-            Constrained_integer_object naturalNumber1 = new Constrained_integer_object(Q[0], oneToHundred);
+            ConstrainedIntegerObject naturalNumber1 = new ConstrainedIntegerObject(Q[0], oneToHundred);
         });
         assertThrows(IllegalArgumentException.class, () -> {
-            Constrained_integer_object naturalNumber2 = new Constrained_integer_object(Q[1], oneToHundred);
+            ConstrainedIntegerObject naturalNumber2 = new ConstrainedIntegerObject(Q[1], oneToHundred);
         });
     }
 
