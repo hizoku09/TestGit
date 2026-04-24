@@ -12,7 +12,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import valueobjects.ConstrainedIntegerObject;
-import valueobjects.IntConstraint;
 import valueobjects.IntRange;
 
 class Format_real_number_bossTest {
@@ -62,7 +61,7 @@ class Format_real_number_bossTest {
             final OutputWriter_For_Step4 writer = new OutputWriter_For_Step4(System.out);
             final int Q = sc.nextInt();
             
-            final IntConstraint oneToFour = new IntRange(1, 5);
+            final IntRange oneToFour = new IntRange(1, 5);
             final ConstrainedIntegerObject naturalNumberOneToHundred = 
                     new ConstrainedIntegerObject(Q, oneToFour);
 

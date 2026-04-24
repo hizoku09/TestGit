@@ -3,7 +3,6 @@ package stdout_primer.print_width;
 import java.util.Scanner;
 
 import valueobjects.ConstrainedIntegerObject;
-import valueobjects.IntConstraint;
 import valueobjects.IntRange;
 
 class Step1 {
@@ -12,7 +11,7 @@ class Step1 {
         try (Scanner sc = new Scanner(System.in)) {
             final OutputWriter writer = new OutputWriter(System.out);
             final int N = sc.nextInt();
-            final IntConstraint oneToThousand = new IntRange(0, 1000);
+            final IntRange oneToThousand = new IntRange(0, 1000);
             final ConstrainedIntegerObject naturalNumber = new ConstrainedIntegerObject(N, oneToThousand);
 
             writer.printNaturalNumber3Digits(naturalNumber);

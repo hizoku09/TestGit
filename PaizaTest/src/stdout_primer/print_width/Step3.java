@@ -3,7 +3,6 @@ package stdout_primer.print_width;
 import java.util.Scanner;
 
 import valueobjects.ConstrainedIntegerObject;
-import valueobjects.IntConstraint;
 import valueobjects.IntRange;
 
 class Step3 {
@@ -12,14 +11,14 @@ class Step3 {
         // TODO 自動生成されたメソッド・スタブ
         try (Scanner sc = new Scanner(System.in)) {
             final OutputWriter writer = new OutputWriter(System.out);
-            final IntConstraint zeroTo9999 = new IntRange(0, 10000);
+            final IntRange zeroTo9999 = new IntRange(0, 10000);
             final ConstrainedIntegerObject N = new ConstrainedIntegerObject(sc.nextInt(), zeroTo9999);
             int M[] = new int[N.getValue()];
             for (int i = 0; i < N.getValue(); i++) {
                 M[i] = sc.nextInt();
             }
 
-            final IntConstraint zeroTo999 = new IntRange(0, 1000);
+            final IntRange zeroTo999 = new IntRange(0, 1000);
             for (int i = 0; i < N.getValue(); i++) {
                 final ConstrainedIntegerObject m = new ConstrainedIntegerObject(M[i], zeroTo999);
                 writer.printNaturalNumber3Digits(m);

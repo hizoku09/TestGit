@@ -12,7 +12,7 @@ class ConstrainedIntegerObjectTest {
     void testIllegalCheck_integer() {
         final int Q = 4;
         
-        final IntConstraint oneToHundred = new IntRange(1, 101);
+        final IntRange oneToHundred = new IntRange(1, 101);
 
         final ConstrainedIntegerObject naturalNumberOneToHundred = 
                 new ConstrainedIntegerObject(Q, oneToHundred);
@@ -25,7 +25,7 @@ class ConstrainedIntegerObjectTest {
     void testMax_Min_Validation() {
         final int[] Q = { 0, 101 };
         
-        final IntConstraint oneToHundred = new IntRange(1, 101);
+        final IntRange oneToHundred = new IntRange(1, 101);
 
         assertThrows(IllegalArgumentException.class, () -> {
             ConstrainedIntegerObject naturalNumber1 = new ConstrainedIntegerObject(Q[0], oneToHundred);

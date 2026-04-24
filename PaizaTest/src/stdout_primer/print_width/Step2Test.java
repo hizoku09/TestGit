@@ -12,7 +12,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import valueobjects.ConstrainedIntegerObject;
-import valueobjects.IntConstraint;
 import valueobjects.IntRange;
 
 class Step2Test {
@@ -59,7 +58,7 @@ class Step2Test {
             for (String answer : Answer) {
                 final OutputWriter writer = new OutputWriter(System.out);
                 final int N = sc.nextInt();
-                final IntConstraint oneToThousand = new IntRange(0, 1000);
+                final IntRange oneToThousand = new IntRange(0, 1000);
                 final ConstrainedIntegerObject naturalNumber = new ConstrainedIntegerObject(N, oneToThousand);
 
                 writer.printNaturalNumber3DigitsByZero(naturalNumber);
