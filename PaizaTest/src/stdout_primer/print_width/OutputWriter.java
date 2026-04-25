@@ -2,7 +2,7 @@ package stdout_primer.print_width;
 
 import java.io.PrintStream;
 
-import valueobjects.ConstrainedIntegerObject;
+import valueobjects.ConstrainedInteger;
 
 class OutputWriter {
     private final PrintStream out;
@@ -12,8 +12,7 @@ class OutputWriter {
         this.out = out;
     }
 
-    void printNaturalNumber3Digits(final ConstrainedIntegerObject naturalNumber) {
-        // TODO 自動生成されたメソッド・スタブ
+    void printNaturalNumber3Digits(final ConstrainedInteger naturalNumber) {
         final int N = naturalNumber.getValue();
         final int digits = String.valueOf(N).length();
 
@@ -22,9 +21,8 @@ class OutputWriter {
         }
         out.printf("%d\n", N);
     }
-    
-    void printNaturalNumber3DigitsByZero(final ConstrainedIntegerObject naturalNumber) {
-        // TODO 自動生成されたメソッド・スタブ
+
+    void printNaturalNumber3DigitsByZero(final ConstrainedInteger naturalNumber) {
         final int N = naturalNumber.getValue();
         final int digits = String.valueOf(N).length();
 
@@ -33,4 +31,33 @@ class OutputWriter {
         }
         out.printf("%d\n", N);
     }
+
+    void printNaturalNumberDigitsOf(final ConstrainedInteger naturalNumberN, final ConstrainedInteger naturalNumberM) {
+        final int N = naturalNumberN.getValue();
+        final int digits = String.valueOf(N).length();
+        final int M = naturalNumberM.getValue();
+
+        for (int i = 0; i < M - digits; i++) {
+            out.print(" ");
+        }
+
+        out.printf("%d\n", N);
+    }
+
+    void printNaturalNumberArray(final ConstrainedInteger[] naturalNumberAi, final ConstrainedInteger naturalNumberM) {
+        final int M = naturalNumberM.getValue();
+        final int digits[] = new int[naturalNumberAi.length];
+        for (int i = 0; i < naturalNumberAi.length; i++) {
+            int Ai = naturalNumberAi[i].getValue();
+            digits[i] = M - String.valueOf(Ai).length();
+        }
+        
+        
+        for (int i = 0; i < naturalNumberAi.length; i++) {
+            for (int j = 0; j < digits[i]; j++)
+                out.print(" ");
+            out.printf("%d\n", naturalNumberAi[i].getValue());
+        }
+    }
+    
 }

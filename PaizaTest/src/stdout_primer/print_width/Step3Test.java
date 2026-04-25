@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import valueobjects.ConstrainedIntegerObject;
+import valueobjects.ConstrainedInteger;
 import valueobjects.IntRange;
 
 class Step3Test {
@@ -59,7 +59,7 @@ class Step3Test {
         try (Scanner sc = new Scanner(System.in)) {
             final OutputWriter writer = new OutputWriter(System.out);
             final IntRange zeroTo9999 = new IntRange(0, 10000);
-            final ConstrainedIntegerObject N = new ConstrainedIntegerObject(sc.nextInt(), zeroTo9999);
+            final ConstrainedInteger N = new ConstrainedInteger(sc.nextInt(), zeroTo9999);
             int M[] = new int[N.getValue()];
             for (int i = 0; i < N.getValue(); i++) {
                 M[i] = sc.nextInt();
@@ -67,7 +67,7 @@ class Step3Test {
 
             final IntRange zeroTo999 = new IntRange(0, 1000);
             for (int i = 0; i < N.getValue(); i++) {
-                final ConstrainedIntegerObject m = new ConstrainedIntegerObject(M[i], zeroTo999);
+                final ConstrainedInteger m = new ConstrainedInteger(M[i], zeroTo999);
                 writer.printNaturalNumber3Digits(m);
 
                 assertEquals(Answer[i], out.readLine());
