@@ -54,10 +54,14 @@ class OutputWriter {
         
         
         for (int i = 0; i < naturalNumberAi.length; i++) {
-            for (int j = 0; j < digits[i]; j++)
-                out.print(" ");
+            printHalfWidthSpace(digits, i);
             out.printf("%d\n", naturalNumberAi[i].getValue());
         }
+    }
+
+    void printHalfWidthSpace(final int[] digits, int i) {
+        for (int j = 0; j < digits[i]; j++)
+            out.print(" ");
     }
     
 }
