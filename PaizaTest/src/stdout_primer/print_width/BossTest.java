@@ -42,18 +42,15 @@ class BossTest {
         System.setOut(originalOut);
     }
 
-//    @Test
-//    @DisplayName("全体テスト")
-//    void testAll_1() {
-//        final String N = "813";
-//        final String M = "4";
-//        in.inputln(N);
-//        in.inputln(M);
-//        
-//        Step4.main(null);
-//
-//        assertEquals(" 813", out.readLine());
-//    }
+    @Test
+    @DisplayName("全体テスト")
+    void testAll_1() {
+        Boss.main(null);
+
+        for (String ans : Answer) {
+            assertEquals(ans, out.readLine());
+        }
+    }
 
     @Test
     @DisplayName("整数 N, M と N 個の整数 A_1, A_2, ..., A_N が与えられます。"
@@ -65,6 +62,7 @@ class BossTest {
             final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), oneTo99);
             final IntRange oneTo10 = new IntRange(1, 11);
             final ConstrainedInteger m = new ConstrainedInteger(sc.nextInt(), oneTo10);
+            
             final IntRange zeroTo999 = new IntRange(0, 1000);
             final ConstrainedInteger ai[] = new ConstrainedInteger[n.getValue()];
             for (int i = 0; i < n.getValue(); i++) {
@@ -72,7 +70,7 @@ class BossTest {
                 
             }
 
-            writer.printNaturalNumberArray(ai, m);
+            writer.printNaturalNumberArraySpaceDelimited(ai, m);
 
             for (String ans : Answer) {
                 assertEquals(ans, out.readLine());

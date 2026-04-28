@@ -44,23 +44,19 @@ class OutputWriter {
         out.printf("%d\n", N);
     }
 
-    void printNaturalNumberArray(final ConstrainedInteger[] naturalNumberAi, final ConstrainedInteger naturalNumberM) {
-        final int M = naturalNumberM.getValue();
-        final int digits[] = new int[naturalNumberAi.length];
-        for (int i = 0; i < naturalNumberAi.length; i++) {
-            int Ai = naturalNumberAi[i].getValue();
-            digits[i] = M - String.valueOf(Ai).length();
-        }
+    void printNaturalNumberArraySpaceDelimited(final ConstrainedInteger[] arrayAi, final ConstrainedInteger digits) {
+        final int valueOfDigits = digits.getValue();
         
-        
-        for (int i = 0; i < naturalNumberAi.length; i++) {
-            printHalfWidthSpace(digits, i);
-            out.printf("%d\n", naturalNumberAi[i].getValue());
+        for (int i = 0; i < arrayAi.length; i++) {
+            printHalfWidthSpace(arrayAi[i], valueOfDigits);
+            out.printf("%d\n", arrayAi[i].getValue());
         }
     }
-
-    void printHalfWidthSpace(final int[] digits, int i) {
-        for (int j = 0; j < digits[i]; j++)
+    
+    void printHalfWidthSpace(final ConstrainedInteger naturalNumber, final int valueOfDigits) {
+        final int value = naturalNumber.getValue();
+        final int numberOfHalWidthSpace = valueOfDigits - String.valueOf(value).length();
+        for (int i = 0; i < numberOfHalWidthSpace; i++)
             out.print(" ");
     }
     
