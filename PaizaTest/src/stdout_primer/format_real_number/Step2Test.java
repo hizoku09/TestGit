@@ -11,7 +11,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class Format_real_number_step2Test {
+import valueobjects.StandardInputStream;
+import valueobjects.StandardOutputStream;
+
+class Step2Test {
 
     private final InputStream originalIn = System.in;
     private final PrintStream originalOut = System.out;
@@ -35,14 +38,14 @@ class Format_real_number_step2Test {
     @DisplayName("全体テスト")
     void testAll_1() {
         in.inputln("0.813");
-        Format_real_number_step2.main(null);
+        Step2.main(null);
         assertEquals("0.813", out.readLine());
     }
 
     @Test
     void testAll_2() {
         in.inputln("10000000000.5");
-        Format_real_number_step2.main(null);
+        Step2.main(null);
         assertEquals("10000000000.5", out.readLine());
     }
 

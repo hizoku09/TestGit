@@ -3,7 +3,7 @@ package stdout_primer.format_real_number;
 //import java.io.PrintStream;
 import java.util.Scanner;
 
-class Format_real_number_step4 {
+class Step4 {
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {

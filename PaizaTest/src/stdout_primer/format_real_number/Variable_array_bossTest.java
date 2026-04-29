@@ -10,6 +10,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import valueobjects.StandardInputStream;
+import valueobjects.StandardOutputStream;
+
 class Variable_array_bossTest {
     private final InputStream originalIn = System.in;
     private final PrintStream originalOut = System.out;

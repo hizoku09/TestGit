@@ -1,4 +1,4 @@
-package stdout_primer.format_real_number;
+package valueobjects;
 
 import static org.junit.jupiter.api.Assertions.*;
 

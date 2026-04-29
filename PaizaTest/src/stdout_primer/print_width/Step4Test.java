@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Test;
 
 import valueobjects.ConstrainedInteger;
 import valueobjects.IntRange;
+import valueobjects.StandardInputStream;
+import valueobjects.StandardOutputStream;
 
 class Step4Test {
 

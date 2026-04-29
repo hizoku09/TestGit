@@ -2,7 +2,7 @@ package stdout_primer.format_real_number;
 //import java.io.PrintStream;
 import java.util.Scanner;
 
-class Format_real_number_step3 {
+class Step3 {
 
     public static void main(String[] args) {
         // TODO 自動生成されたメソッド・スタブ

@@ -9,6 +9,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import valueobjects.StandardInputStream;
+
 class InputReaderTest {
     private final InputStream originalIn = System.in;
     private final StandardInputStream in = new StandardInputStream();

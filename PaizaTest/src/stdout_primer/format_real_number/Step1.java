@@ -1,7 +1,7 @@
 package stdout_primer.format_real_number;
 import java.util.Scanner;
 
-class Format_real_number_step1 {
+class Step1 {
 
     public static void main(String[] args) {
         // TODO 自動生成されたメソッド・スタブ
