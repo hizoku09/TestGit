@@ -9,7 +9,7 @@ class Step4 {
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
-            final OutputWriter writer = new OutputWriter(System.out);
+            final PaddedNumberPrinter writer = new PaddedNumberPrinter(System.out);
             final IntRange zeroTo999 = new IntRange(0, 1000);
             final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), zeroTo999);
             final IntRange oneTo10 = new IntRange(1, 11);

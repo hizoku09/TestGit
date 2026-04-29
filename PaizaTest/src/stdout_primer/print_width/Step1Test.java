@@ -58,7 +58,7 @@ class Step1Test {
 
         try (Scanner sc = new Scanner(System.in)) {
             for (String answer : Answer) {
-                final OutputWriter writer = new OutputWriter(System.out);
+                final PaddedNumberPrinter writer = new PaddedNumberPrinter(System.out);
                 final int N = sc.nextInt();
                 final IntRange oneToThousand = new IntRange(0, 1000);
                 final ConstrainedInteger naturalNumber = new ConstrainedInteger(N, oneToThousand);

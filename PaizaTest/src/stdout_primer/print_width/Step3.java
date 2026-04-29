@@ -10,7 +10,7 @@ class Step3 {
     public static void main(String[] args) {
         // TODO 自動生成されたメソッド・スタブ
         try (Scanner sc = new Scanner(System.in)) {
-            final OutputWriter writer = new OutputWriter(System.out);
+            final PaddedNumberPrinter writer = new PaddedNumberPrinter(System.out);
             final IntRange zeroTo9999 = new IntRange(0, 10000);
             final ConstrainedInteger N = new ConstrainedInteger(sc.nextInt(), zeroTo9999);
             int M[] = new int[N.getValue()];

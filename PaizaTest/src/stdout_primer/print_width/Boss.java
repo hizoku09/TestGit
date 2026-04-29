@@ -9,30 +9,31 @@ class Boss {
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
-            final OutputWriter writer = new OutputWriter(System.out);
+            final PaddedNumberPrinter writer = new PaddedNumberPrinter(System.out);
+            
             final IntRange oneTo99 = new IntRange(1, 100);
             final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), oneTo99);
             final IntRange oneTo10 = new IntRange(1, 11);
             final ConstrainedInteger m = new ConstrainedInteger(sc.nextInt(), oneTo10);
-
             final IntRange zeroTo999 = new IntRange(0, 1000);
-            final ConstrainedInteger ai[] = new ConstrainedInteger[n.getValue()];
-            for (int i = 0; i < n.getValue(); i++) {
+            final int length = n.getValue();
+            final ConstrainedInteger ai[] = new ConstrainedInteger[length];
+            for (int i = 0; i < length; i++) {
                 ai[i] = new ConstrainedInteger(sc.nextInt(), zeroTo999);
-
+                
             }
 
-            writer.printNaturalNumberArraySpaceDelimited(ai, m);
+            writer.printArrayPaddedHalfWidthSpace(ai, m);
         }
     }
 
 }
 
-//class OutputWriter {
+//class PaddedNumberPrinter {
 //    private final PrintStream out;
 //    private static final int ConstrainedDigits = 3;
 //
-//    OutputWriter(final PrintStream out) {
+//    PaddedNumberPrinter(final PrintStream out) {
 //        this.out = out;
 //    }
 //
@@ -68,19 +69,20 @@ class Boss {
 //        out.printf("%d\n", N);
 //    }
 //
-//    void printNaturalNumberArraySpaceDelimited(final ConstrainedInteger[] arrayAi, final ConstrainedInteger digits) {
-//        final int valueOfDigits = digits.getValue();
+//    void printArrayPaddedHalfWidthSpace(final ConstrainedInteger[] array, final ConstrainedInteger digits) {
+//        final int paddingValue = digits.getValue();
 //        
-//        for (int i = 0; i < arrayAi.length; i++) {
-//            printHalfWidthSpace(arrayAi[i], valueOfDigits);
-//            out.printf("%d\n", arrayAi[i].getValue());
+//        for (int i = 0; i < array.length; i++) {
+//            printHalfWidthSpace(array[i], paddingValue);
+//            out.printf("%d\n", array[i].getValue());
 //        }
 //    }
 //    
-//    void printHalfWidthSpace(final ConstrainedInteger naturalNumber, final int valueOfDigits) {
-//        final int value = naturalNumber.getValue();
-//        final int numberOfHalWidthSpace = valueOfDigits - String.valueOf(value).length();
-//        for (int i = 0; i < numberOfHalWidthSpace; i++)
+//    void printHalfWidthSpace(final ConstrainedInteger n, final int paddingValue) {
+//        final int digitsOfn = String.valueOf(n.getValue()).length();
+//        final int paddingTimes = paddingValue - digitsOfn;
+//        
+//        for (int i = 0; i < paddingTimes; i++)
 //            out.print(" ");
 //    }
 //    

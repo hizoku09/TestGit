@@ -4,11 +4,11 @@ import java.io.PrintStream;
 
 import valueobjects.ConstrainedInteger;
 
-class OutputWriter {
+class PaddedNumberPrinter {
     private final PrintStream out;
     private static final int ConstrainedDigits = 3;
 
-    OutputWriter(final PrintStream out) {
+    PaddedNumberPrinter(final PrintStream out) {
         this.out = out;
     }
 
@@ -44,19 +44,20 @@ class OutputWriter {
         out.printf("%d\n", N);
     }
 
-    void printNaturalNumberArraySpaceDelimited(final ConstrainedInteger[] arrayAi, final ConstrainedInteger digits) {
-        final int valueOfDigits = digits.getValue();
+    void printArrayPaddedHalfWidthSpace(final ConstrainedInteger[] array, final ConstrainedInteger digits) {
+        final int paddingValue = digits.getValue();
         
-        for (int i = 0; i < arrayAi.length; i++) {
-            printHalfWidthSpace(arrayAi[i], valueOfDigits);
-            out.printf("%d\n", arrayAi[i].getValue());
+        for (int i = 0; i < array.length; i++) {
+            printHalfWidthSpace(array[i], paddingValue);
+            out.printf("%d\n", array[i].getValue());
         }
     }
     
-    void printHalfWidthSpace(final ConstrainedInteger naturalNumber, final int valueOfDigits) {
-        final int value = naturalNumber.getValue();
-        final int numberOfHalWidthSpace = valueOfDigits - String.valueOf(value).length();
-        for (int i = 0; i < numberOfHalWidthSpace; i++)
+    void printHalfWidthSpace(final ConstrainedInteger n, final int paddingValue) {
+        final int digitsOfn = String.valueOf(n.getValue()).length();
+        final int paddingTimes = paddingValue - digitsOfn;
+        
+        for (int i = 0; i < paddingTimes; i++)
             out.print(" ");
     }
     

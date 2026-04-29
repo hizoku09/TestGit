@@ -62,7 +62,7 @@ class Step1Test {
         in.inputln(T1);
 
         try (Scanner sc = new Scanner(System.in)) {
-            final OutputWriter writer = new OutputWriter(System.out);
+            final SpecificStringsOutput writer = new SpecificStringsOutput(System.out);
             final String s = sc.next();
             final String t = sc.next();
 

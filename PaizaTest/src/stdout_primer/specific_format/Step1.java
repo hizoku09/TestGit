@@ -6,7 +6,7 @@ class Step1 {
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
-            final OutputWriter writer = new OutputWriter(System.out);
+            final SpecificStringsOutput writer = new SpecificStringsOutput(System.out);
             final String S = sc.next();
             final String T = sc.next();
 
@@ -16,15 +16,15 @@ class Step1 {
 
 }
 
-//class OutputWriter {
+//class SpecificStringsOutput {
 //    private final PrintStream out;
 //
-//    OutputWriter(final PrintStream out) {
+//    SpecificStringsOutput(final PrintStream out) {
 //        this.out = out;
 //    }
 //
 //    void printConnectedStrings(final String s, final String t) {
-//        out.print(s + " + " + t + " = " + s + t);
+//        out.printf("%s + %s = %s\n", s, t, s + t);
 //    }
 //    
 //}
