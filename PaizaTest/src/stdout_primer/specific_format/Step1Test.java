@@ -62,11 +62,11 @@ class Step1Test {
         in.inputln(T1);
 
         try (Scanner sc = new Scanner(System.in)) {
-            final SpecificStringsOutput writer = new SpecificStringsOutput(System.out);
+            final SpecificStringsPrinter printer = new SpecificStringsPrinter(System.out);
             final String s = sc.next();
             final String t = sc.next();
 
-            writer.printConnectedStrings(s, t);
+            printer.printConnectedStrings(s, t);
 
             assertEquals("kirishima + kyoko = kirishimakyoko", out.readLine());
         }

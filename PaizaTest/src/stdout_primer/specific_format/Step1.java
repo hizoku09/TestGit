@@ -6,7 +6,7 @@ class Step1 {
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
-            final SpecificStringsOutput writer = new SpecificStringsOutput(System.out);
+            final SpecificStringsPrinter writer = new SpecificStringsPrinter(System.out);
             final String S = sc.next();
             final String T = sc.next();
 
