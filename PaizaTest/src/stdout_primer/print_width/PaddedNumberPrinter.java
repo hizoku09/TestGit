@@ -43,14 +43,9 @@ class PaddedNumberPrinter {
 
         out.printf("%d\n", N);
     }
-
-    void printArrayPaddedHalfWidthSpace(final ConstrainedInteger[] array, final ConstrainedInteger digits) {
-        final int paddingValue = digits.getValue();
-        
-        for (int i = 0; i < array.length; i++) {
-            printHalfWidthSpace(array[i], paddingValue);
-            out.printf("%d\n", array[i].getValue());
-        }
+    
+    void printArrayPaddedHalfWidthSpace(final ConstrainedInteger n, final ConstrainedInteger digits) {
+        out.printf("%" + digits.getValue() + "d\n", n.getValue());
     }
     
     void printHalfWidthSpace(final ConstrainedInteger n, final int paddingValue) {
