@@ -22,37 +22,19 @@ class Step4 {
 }
 
 /*
- * class PaddedNumberPrinter { private final PrintStream out; private static
- * final int ConstrainedDigits = 3;
+ * class PaddedNumberPrinter { private final PrintStream out;
  * 
  * PaddedNumberPrinter(final PrintStream out) { this.out = out; }
  * 
- * void printNaturalNumber3Digits(final ConstrainedInteger naturalNumber) {
- * final int N = naturalNumber.getValue(); final int digits =
- * String.valueOf(N).length();
- * 
- * for (int i = 0; i < ConstrainedDigits - digits; i++) { out.print(" "); }
- * out.printf("%d\n", N); }
- * 
- * void printNaturalNumber3DigitsByZero(final ConstrainedInteger naturalNumber)
- * { final int N = naturalNumber.getValue(); final int digits =
- * String.valueOf(N).length();
- * 
- * for (int i = 0; i < ConstrainedDigits - digits; i++) { out.printf("0"); }
- * out.printf("%d\n", N); }
+ * void printPaddedNumberZero(final ConstrainedInteger n, final
+ * ConstrainedInteger digits) { out.printf("%0" + digits.getValue() + "d\n",
+ * n.getValue()); }
  * 
  * void printPaddedNumberHalfWidthSpace(final ConstrainedInteger n, final
  * ConstrainedInteger digits) { out.printf("%" + digits.getValue() + "d\n",
  * n.getValue()); }
  * 
- * void printHalfWidthSpace(final ConstrainedInteger n, final int paddingValue)
- * { final int digitsOfn = String.valueOf(n.getValue()).length(); final int
- * paddingTimes = paddingValue - digitsOfn;
- * 
- * for (int i = 0; i < paddingTimes; i++) out.print(" "); }
- * 
  * }
- * 
  * 
  * final class IntRange { private final int minInclusive; private final int
  * maxExclusive;

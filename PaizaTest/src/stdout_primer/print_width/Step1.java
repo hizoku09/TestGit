@@ -21,8 +21,7 @@ class Step1 {
 }
 
 /*
- * class PaddedNumberPrinter { private final PrintStream out; private static
- * final int ConstrainedDigits = 3;
+ * class PaddedNumberPrinter { private final PrintStream out;
  * 
  * PaddedNumberPrinter(final PrintStream out) { this.out = out; }
  * 

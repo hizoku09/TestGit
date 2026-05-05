@@ -27,35 +27,15 @@ class Boss {
 }
 
 /*
- * class PaddedNumberPrinter { private final PrintStream out; private static
- * final int ConstrainedDigits = 3;
+ * class PaddedNumberPrinter { private final PrintStream out;
  * 
  * PaddedNumberPrinter(final PrintStream out) { this.out = out; }
  * 
- * void printNaturalNumber3Digits(final ConstrainedInteger naturalNumber) {
- * final int N = naturalNumber.getValue(); final int digits =
- * String.valueOf(N).length();
+ * void printPaddedNumberZero(final ConstrainedInteger n, final
+ * ConstrainedInteger digits) { out.printf("%0" + digits.getValue() + "d\n",
+ * n.getValue()); }
  * 
- * for (int i = 0; i < ConstrainedDigits - digits; i++) { out.print(" "); }
- * out.printf("%d\n", N); }
- * 
- * void printNaturalNumber3DigitsByZero(final ConstrainedInteger naturalNumber)
- * { final int N = naturalNumber.getValue(); final int digits =
- * String.valueOf(N).length();
- * 
- * for (int i = 0; i < ConstrainedDigits - digits; i++) { out.printf("0"); }
- * out.printf("%d\n", N); }
- * 
- * void printNaturalNumberDigitsOf(final ConstrainedInteger naturalNumberN,
- * final ConstrainedInteger naturalNumberM) { final int N =
- * naturalNumberN.getValue(); final int digits = String.valueOf(N).length();
- * final int M = naturalNumberM.getValue();
- * 
- * for (int i = 0; i < M - digits; i++) { out.print(" "); }
- * 
- * out.printf("%d\n", N); }
- * 
- * void printArrayPaddedHalfWidthSpace(final ConstrainedInteger n, final
+ * void printPaddedNumberHalfWidthSpace(final ConstrainedInteger n, final
  * ConstrainedInteger digits) { out.printf("%" + digits.getValue() + "d\n",
  * n.getValue()); }
  * 
