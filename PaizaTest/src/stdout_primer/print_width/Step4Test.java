@@ -57,13 +57,13 @@ class Step4Test {
         in.inputln(M);
 
         try (Scanner sc = new Scanner(System.in)) {
-            final PaddedNumberPrinter writer = new PaddedNumberPrinter(System.out);
+            final PaddedNumberPrinter printer = new PaddedNumberPrinter(System.out);
             final IntRange zeroTo999 = new IntRange(0, 1000);
             final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), zeroTo999);
             final IntRange oneTo10 = new IntRange(1, 11);
             final ConstrainedInteger m = new ConstrainedInteger(sc.nextInt(), oneTo10);
 
-            writer.printNaturalNumberDigitsOf(n, m);
+            printer.printPaddedNumberHalfWidthSpace(n, m);
 
             assertEquals(" 813", out.readLine());
         }
@@ -78,13 +78,13 @@ class Step4Test {
         in.inputln(M);
 
         try (Scanner sc = new Scanner(System.in)) {
-            final PaddedNumberPrinter writer = new PaddedNumberPrinter(System.out);
+            final PaddedNumberPrinter printer = new PaddedNumberPrinter(System.out);
             final IntRange zeroTo999 = new IntRange(0, 1000);
             final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), zeroTo999);
             final IntRange oneTo10 = new IntRange(1, 11);
             final ConstrainedInteger m = new ConstrainedInteger(sc.nextInt(), oneTo10);
 
-            writer.printNaturalNumberDigitsOf(n, m);
+            printer.printPaddedNumberHalfWidthSpace(n, m);
 
             assertEquals("     813", out.readLine());
         }

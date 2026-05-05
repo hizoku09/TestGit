@@ -58,12 +58,12 @@ class Step1Test {
 
         try (Scanner sc = new Scanner(System.in)) {
             for (String answer : Answer) {
-                final PaddedNumberPrinter writer = new PaddedNumberPrinter(System.out);
-                final int N = sc.nextInt();
-                final IntRange oneToThousand = new IntRange(0, 1000);
-                final ConstrainedInteger naturalNumber = new ConstrainedInteger(N, oneToThousand);
+                final PaddedNumberPrinter printer = new PaddedNumberPrinter(System.out);
+                final IntRange oneTo999 = new IntRange(0, 1000);
+                final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), oneTo999);
+                final ConstrainedInteger three = new ConstrainedInteger(3, oneTo999);
 
-                writer.printNaturalNumber3Digits(naturalNumber);
+                printer.printPaddedNumberHalfWidthSpace(n, three);
 
                 assertEquals(answer, out.readLine());
             }

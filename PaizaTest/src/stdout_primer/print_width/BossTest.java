@@ -68,7 +68,7 @@ class BossTest {
 
             for (int i = 0; i < n.getValue(); i++) {
                 final ConstrainedInteger ai = new ConstrainedInteger(sc.nextInt(), zeroTo999);
-                printer.printArrayPaddedHalfWidthSpace(ai, m);
+                printer.printPaddedNumberHalfWidthSpace(ai, m);
             }
 
             for (String ans : Answer) {

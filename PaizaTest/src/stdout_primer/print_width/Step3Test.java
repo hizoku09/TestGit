@@ -59,20 +59,19 @@ class Step3Test {
             + "* M_i が 3 けたになるよう数値の前に半角スペースを埋めて出力してください。")
     void testPrintNaturalNumber() {
         try (Scanner sc = new Scanner(System.in)) {
-            final PaddedNumberPrinter writer = new PaddedNumberPrinter(System.out);
+            final PaddedNumberPrinter printer = new PaddedNumberPrinter(System.out);
             final IntRange zeroTo9999 = new IntRange(0, 10000);
-            final ConstrainedInteger N = new ConstrainedInteger(sc.nextInt(), zeroTo9999);
-            int M[] = new int[N.getValue()];
-            for (int i = 0; i < N.getValue(); i++) {
-                M[i] = sc.nextInt();
-            }
-
+            final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), zeroTo9999);
             final IntRange zeroTo999 = new IntRange(0, 1000);
-            for (int i = 0; i < N.getValue(); i++) {
-                final ConstrainedInteger m = new ConstrainedInteger(M[i], zeroTo999);
-                writer.printNaturalNumber3Digits(m);
-
-                assertEquals(Answer[i], out.readLine());
+            final ConstrainedInteger three = new ConstrainedInteger(3, zeroTo999);
+            
+            for (int i = 0; i < n.getValue(); i++) {
+                final ConstrainedInteger mi = new ConstrainedInteger(sc.nextInt(), zeroTo999);
+                printer.printPaddedNumberHalfWidthSpace(mi, three);
+            }
+            
+            for (String ans : Answer) {
+                assertEquals(ans, out.readLine());
             }
         }
     }

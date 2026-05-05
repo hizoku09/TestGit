@@ -9,23 +9,23 @@ class Step4 {
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
-            final PaddedNumberPrinter writer = new PaddedNumberPrinter(System.out);
+            final PaddedNumberPrinter printer = new PaddedNumberPrinter(System.out);
             final IntRange zeroTo999 = new IntRange(0, 1000);
             final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), zeroTo999);
             final IntRange oneTo10 = new IntRange(1, 11);
             final ConstrainedInteger m = new ConstrainedInteger(sc.nextInt(), oneTo10);
 
-            writer.printNaturalNumberDigitsOf(n, m);
+            printer.printPaddedNumberHalfWidthSpace(n, m);
         }
     }
 
 }
 
 /*
- * class OutputWriter { private final PrintStream out; private static final int
- * ConstrainedDigits = 3;
+ * class PaddedNumberPrinter { private final PrintStream out; private static
+ * final int ConstrainedDigits = 3;
  * 
- * OutputWriter(final PrintStream out) { this.out = out; }
+ * PaddedNumberPrinter(final PrintStream out) { this.out = out; }
  * 
  * void printNaturalNumber3Digits(final ConstrainedInteger naturalNumber) {
  * final int N = naturalNumber.getValue(); final int digits =
@@ -41,14 +41,18 @@ class Step4 {
  * for (int i = 0; i < ConstrainedDigits - digits; i++) { out.printf("0"); }
  * out.printf("%d\n", N); }
  * 
- * void printNaturalNumberDigitsOf(final ConstrainedInteger naturalNumberN,
- * final ConstrainedInteger naturalNumberM) { final int N =
- * naturalNumberN.getValue(); final int digits = String.valueOf(N).length();
- * final int M = naturalNumberM.getValue();
+ * void printPaddedNumberHalfWidthSpace(final ConstrainedInteger n, final
+ * ConstrainedInteger digits) { out.printf("%" + digits.getValue() + "d\n",
+ * n.getValue()); }
  * 
- * for (int i = 0; i < M - digits; i++) { out.print(" "); }
+ * void printHalfWidthSpace(final ConstrainedInteger n, final int paddingValue)
+ * { final int digitsOfn = String.valueOf(n.getValue()).length(); final int
+ * paddingTimes = paddingValue - digitsOfn;
  * 
- * out.printf("%d\n", N); } }
+ * for (int i = 0; i < paddingTimes; i++) out.print(" "); }
+ * 
+ * }
+ * 
  * 
  * final class IntRange { private final int minInclusive; private final int
  * maxExclusive;

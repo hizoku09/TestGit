@@ -7,50 +7,47 @@ import java.util.Scanner;
 import valueobjects.ConstrainedInteger;
 import valueobjects.IntRange;
 
-//import valueobjects.ConstrainedIntegerObject;
-//import valueobjects.IntConstraint;
-//import valueobjects.IntRange;
-
 class Step2 {
 
     public static void main(String[] args) {
         // TODO 自動生成されたメソッド・スタブ
         try (Scanner sc = new Scanner(System.in)) {
-            final PaddedNumberPrinter writer = new PaddedNumberPrinter(System.out);
-            final int N = sc.nextInt();
-            final IntRange oneToThousand = new IntRange(0, 1000);
-            final ConstrainedInteger naturalNumber = new ConstrainedInteger(N, oneToThousand);
+            final PaddedNumberPrinter printer = new PaddedNumberPrinter(System.out);
+            final IntRange oneTo999 = new IntRange(0, 1000);
+            final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), oneTo999);
+            final ConstrainedInteger three = new ConstrainedInteger(3, oneTo999);
 
-            writer.printNaturalNumber3DigitsByZero(naturalNumber);
+            printer.printPaddedNumberZero(n, three);
 
         }
     }
 }
 
 /*
- * class OutputWriter { private final PrintStream out; private static final int
- * ConstrainedDigits = 3;
+ * class PaddedNumberPrinter { private final PrintStream out; private static
+ * final int ConstrainedDigits = 3;
  * 
- * OutputWriter(final PrintStream out) { this.out = out; }
+ * PaddedNumberPrinter(final PrintStream out) { this.out = out; }
  * 
- * void printNaturalNumber3Digits(final ConstrainedIntegerObject naturalNumber)
- * { // TODO 自動生成されたメソッド・スタブ final int N = naturalNumber.getValue(); final int
- * digits = String.valueOf(N).length();
+ * void printNaturalNumber3Digits(final ConstrainedInteger naturalNumber) {
+ * final int N = naturalNumber.getValue(); final int digits =
+ * String.valueOf(N).length();
  * 
  * for (int i = 0; i < ConstrainedDigits - digits; i++) { out.print(" "); }
  * out.printf("%d\n", N); }
  * 
- * void printNaturalNumber3DigitsByZero(final ConstrainedIntegerObject
- * naturalNumber) { // TODO 自動生成されたメソッド・スタブ final int N =
- * naturalNumber.getValue(); final int digits = String.valueOf(N).length();
+ * void printPaddedNumberZero(final ConstrainedInteger n, final
+ * ConstrainedInteger digits) { out.printf("%0" + digits.getValue() + "d\n",
+ * n.getValue()); }
  * 
- * for (int i = 0; i < ConstrainedDigits - digits; i++) { out.printf("0"); }
- * out.printf("%d\n", N); } }
+ * void printPaddedNumberHalfWidthSpace(final ConstrainedInteger n, final
+ * ConstrainedInteger digits) { out.printf("%" + digits.getValue() + "d\n",
+ * n.getValue()); }
  * 
- * interface IntConstraint { void validate(final int value); }
+ * }
  * 
- * final class IntRange implements IntConstraint { private final int
- * minInclusive; private final int maxExclusive;
+ * final class IntRange { private final int minInclusive; private final int
+ * maxExclusive;
  * 
  * public IntRange(final int minInclusive, final int maxExclusive) { if
  * (minInclusive >= maxExclusive) { throw new
@@ -62,11 +59,11 @@ class Step2 {
  * (value >= maxExclusive) { throw new IllegalArgumentException("数値は " +
  * maxExclusive + " 未満で入力してください。"); } } }
  * 
- * final class ConstrainedIntegerObject { private final int value; private final
- * IntConstraint constraint;
+ * final class ConstrainedInteger { private final int value; private final
+ * IntRange constraint;
  * 
- * public ConstrainedIntegerObject(final int value, final IntConstraint
- * constraint) { this.constraint = Objects.requireNonNull(constraint);
+ * public ConstrainedInteger(final int value, final IntRange constraint) {
+ * this.constraint = Objects.requireNonNull(constraint);
  * this.constraint.validate(value); this.value = value; }
  * 
  * public int getValue() { return value; }
