@@ -22,7 +22,8 @@ class Step2Test {
     private final PrintStream originalOut = System.out;
     private final StandardInputStream in = new StandardInputStream();
     private final StandardOutputStream out = new StandardOutputStream();
-    private final String N = "3 10 99";
+    private final String N1 = "3 10 99";
+    private final String N2 = "2 33 44";
 
     @BeforeEach
     void before() {
@@ -36,41 +37,36 @@ class Step2Test {
         System.setOut(originalOut);
     }
 
-//    @Test
-//    @DisplayName("全体テスト")
-//    void testAll_1() {
-//        in.inputln(S1);
-//        in.inputln(T1);
-//        Step1.main(null);
-//        assertEquals("kirishima + kyoko = kirishimakyoko", out.readLine());
-//    }
-//
-//    @Test
-//    @DisplayName("全体テスト")
-//    void testAll_2() {
-//        in.inputln(S2);
-//        in.inputln(T2);
-//        Step1.main(null);
-//        assertEquals("S + T = ST", out.readLine());
-//    }
+    @Test
+    @DisplayName("全体テスト")
+    void testAll_1() {
+        in.inputln(N1);
+        Step2.main(null);
+        assertEquals("(10, 99), (10, 99), (10, 99)", out.readLine());
+    }
+
+    @Test
+    @DisplayName("全体テスト")
+    void testAll_2() {
+        in.inputln(N2);
+        Step2.main(null);
+        assertEquals("(33, 44), (33, 44)", out.readLine());
+    }
 
     @Test
     @DisplayName("自然数 N, A, B が与えられます。(A, B) という形式の文字列を N 回、カンマと半角スペース区切りで出力してください。")
     void testStrings2Dposition() {
-        in.inputln(N);
-        in.inputln(N);
-        in.inputln(N);
+        in.inputln(N1);
 
         try (Scanner sc = new Scanner(System.in)) {
             final SpecificStringsPrinter printer = new SpecificStringsPrinter(System.out);
-            final IntRange oneTo100 = new IntRange(1, 101);
+            final IntRange oneTo100 = new IntRange(1, 100);
             final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), oneTo100);
-            
-            for (int i = 0; i < n.getValue(); i++) {
-                final ConstrainedInteger a = new ConstrainedInteger(sc.nextInt(), oneTo100);
-                final ConstrainedInteger b = new ConstrainedInteger(sc.nextInt(), oneTo100);
-                printer.printStrings2Dposition(a, b);
-            }
+            final IntRange tenTo99 = new IntRange(10, 99);
+            final ConstrainedInteger a = new ConstrainedInteger(sc.nextInt(), tenTo99);
+            final ConstrainedInteger b = new ConstrainedInteger(sc.nextInt(), tenTo99);
+
+            printer.printIntegers2DpositionNtimes(n, a, b);
 
             assertEquals("(10, 99), (10, 99), (10, 99)", out.readLine());
         }
