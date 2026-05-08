@@ -33,21 +33,28 @@ class Step3Test {
         System.setOut(originalOut);
     }
 
-//    @Test
-//    @DisplayName("全体テスト")
-//    void testAll_1() {
-//        in.inputln(N1);
-//        Step3.main(null);
-//        assertEquals("(10, 99), (10, 99), (10, 99)", out.readLine());
-//    }
-//
-//    @Test
-//    @DisplayName("全体テスト")
-//    void testAll_2() {
-//        in.inputln(N2);
-//        Step3.main(null);
-//        assertEquals("(33, 44), (33, 44)", out.readLine());
-//    }
+    @Test
+    @DisplayName("全体テスト")
+    void testAll_1() {
+        Step3.main(null);
+        assertEquals(" 1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 |  9", out.readLine());
+        assertEquals("==========================================", out.readLine());
+        assertEquals(" 2 |  4 |  6 |  8 | 10 | 12 | 14 | 16 | 18", out.readLine());
+        assertEquals("==========================================", out.readLine());
+        assertEquals(" 3 |  6 |  9 | 12 | 15 | 18 | 21 | 24 | 27", out.readLine());
+        assertEquals("==========================================", out.readLine());
+        assertEquals(" 4 |  8 | 12 | 16 | 20 | 24 | 28 | 32 | 36", out.readLine());
+        assertEquals("==========================================", out.readLine());
+        assertEquals(" 5 | 10 | 15 | 20 | 25 | 30 | 35 | 40 | 45", out.readLine());
+        assertEquals("==========================================", out.readLine());
+        assertEquals(" 6 | 12 | 18 | 24 | 30 | 36 | 42 | 48 | 54", out.readLine());
+        assertEquals("==========================================", out.readLine());
+        assertEquals(" 7 | 14 | 21 | 28 | 35 | 42 | 49 | 56 | 63", out.readLine());
+        assertEquals("==========================================", out.readLine());
+        assertEquals(" 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72", out.readLine());
+        assertEquals("==========================================", out.readLine());
+        assertEquals(" 9 | 18 | 27 | 36 | 45 | 54 | 63 | 72 | 81", out.readLine());
+    }
 
     @Test
     @DisplayName("九九表を、横の数値間では | (半角スペース バーティカルライン 半角スペース)、縦の数値間では = で区切って出力してください。\n"
@@ -58,25 +65,23 @@ class Step3Test {
 
             printer.printMultiplicationTables();
 
-            assertEquals(
-                      " 1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 |  9"
-//                    + "==========================================\n"
-//                    + " 2 |  4 |  6 |  8 | 10 | 12 | 14 | 16 | 18\n"
-//                    + "==========================================\n"
-//                    + " 3 |  6 |  9 | 12 | 15 | 18 | 21 | 24 | 27\n"
-//                    + "==========================================\n"
-//                    + " 4 |  8 | 12 | 16 | 20 | 24 | 28 | 32 | 36\n"
-//                    + "==========================================\n"
-//                    + " 5 | 10 | 15 | 20 | 25 | 30 | 35 | 40 | 45\n"
-//                    + "==========================================\n"
-//                    + " 6 | 12 | 18 | 24 | 30 | 36 | 42 | 48 | 54\n"
-//                    + "==========================================\n"
-//                    + " 7 | 14 | 21 | 28 | 35 | 42 | 49 | 56 | 63\n"
-//                    + "==========================================\n"
-//                    + " 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72\n"
-//                    + "==========================================\n"
-//                    + " 9 | 18 | 27 | 36 | 45 | 54 | 63 | 72 | 81"
-                    , out.readLine());
+            assertEquals(" 1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 |  9", out.readLine());
+            assertEquals("==========================================", out.readLine());
+            assertEquals(" 2 |  4 |  6 |  8 | 10 | 12 | 14 | 16 | 18", out.readLine());
+            assertEquals("==========================================", out.readLine());
+            assertEquals(" 3 |  6 |  9 | 12 | 15 | 18 | 21 | 24 | 27", out.readLine());
+            assertEquals("==========================================", out.readLine());
+            assertEquals(" 4 |  8 | 12 | 16 | 20 | 24 | 28 | 32 | 36", out.readLine());
+            assertEquals("==========================================", out.readLine());
+            assertEquals(" 5 | 10 | 15 | 20 | 25 | 30 | 35 | 40 | 45", out.readLine());
+            assertEquals("==========================================", out.readLine());
+            assertEquals(" 6 | 12 | 18 | 24 | 30 | 36 | 42 | 48 | 54", out.readLine());
+            assertEquals("==========================================", out.readLine());
+            assertEquals(" 7 | 14 | 21 | 28 | 35 | 42 | 49 | 56 | 63", out.readLine());
+            assertEquals("==========================================", out.readLine());
+            assertEquals(" 8 | 16 | 24 | 32 | 40 | 48 | 56 | 64 | 72", out.readLine());
+            assertEquals("==========================================", out.readLine());
+            assertEquals(" 9 | 18 | 27 | 36 | 45 | 54 | 63 | 72 | 81", out.readLine());
         }
     }
 
