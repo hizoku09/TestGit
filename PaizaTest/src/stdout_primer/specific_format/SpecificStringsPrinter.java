@@ -41,13 +41,24 @@ class SpecificStringsPrinter {
         }
     }
 
-    void printMultiplicationLineOf(final int i) {
-        out.printf("%2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d | %2d\n", i * 1, i * 2, i * 3, i * 4, i * 5, i * 6,
-                i * 7, i * 8, i * 9);
+    void printMultiplicationLineOf(final int multiplicand) {
+        for (int j = 1; j <= 9; j++) {
+            out.printf("%2d", multiplicand * j);
+            if (j == 9)
+                out.println();
+            else
+                out.print(" | ");
+        }
     }
 
     void printEqualLines() {
-        out.printf("==========================================\n");
+        final int digitsOfProduct = 2;
+        final int verticalLine = 8;
+        final int paddedHalfWitdhSpace = 3;
+        for (int j = 0; j < digitsOfProduct * 9 + paddedHalfWitdhSpace * verticalLine; j++) {
+            out.print("=");
+        }
+        out.println();
     }
 
 }
