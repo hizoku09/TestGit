@@ -66,7 +66,7 @@ class Step2Test {
             final ConstrainedInteger a = new ConstrainedInteger(sc.nextInt(), tenTo99);
             final ConstrainedInteger b = new ConstrainedInteger(sc.nextInt(), tenTo99);
 
-            printer.printIntegers2DpositionNtimes(n, a, b);
+            printer.print2DpositionNtimes(n, a, b);
 
             assertEquals("(10, 99), (10, 99), (10, 99)", out.readLine());
         }

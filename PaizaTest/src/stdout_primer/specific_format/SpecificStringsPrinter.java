@@ -15,12 +15,11 @@ class SpecificStringsPrinter {
         out.printf("%s + %s = %s\n", s, t, s + t);
     }
 
-    void printIntegers2DpositionNtimes(final ConstrainedInteger n, final ConstrainedInteger x,
-            final ConstrainedInteger y) {
+    void print2DpositionNtimes(final ConstrainedInteger n, final ConstrainedInteger x, final ConstrainedInteger y) {
         final int lasttime = n.getValue() - 1;
 
         for (int i = 0; i < n.getValue(); i++) {
-            printIntegers2Dposition(x, y);
+            print2Dposition(x, y);
             if (i == lasttime) {
                 out.println();
             } else {
@@ -29,8 +28,21 @@ class SpecificStringsPrinter {
         }
     }
 
-    void printIntegers2Dposition(final ConstrainedInteger x, final ConstrainedInteger y) {
+    void print2Dposition(final ConstrainedInteger x, final ConstrainedInteger y) {
         out.printf("(%d, %d)", x.getValue(), y.getValue());
+    }
+    
+    void print2DpositionNtimesDelimiter(final ConstrainedInteger n, final ConstrainedInteger x, final ConstrainedInteger y) {
+        final int lasttime = n.getValue() - 1;
+
+        for (int i = 0; i < n.getValue(); i++) {
+            print2Dposition(x, y);
+            if (i == lasttime) {
+                out.println();
+            } else {
+                printVerticalLineDelimiter();
+            }
+        }
     }
 
     void printMultiplicationTables() {
@@ -47,7 +59,7 @@ class SpecificStringsPrinter {
             if (j == 9)
                 out.println();
             else
-                out.print(" | ");
+                printVerticalLineDelimiter();
         }
     }
 
@@ -59,6 +71,15 @@ class SpecificStringsPrinter {
             out.print("=");
         }
         out.println();
+    }
+
+    void printEqualLinesStep4() {
+        out.print("========================");
+        out.println();
+    }
+
+    void printVerticalLineDelimiter() {
+        out.print(" | ");
     }
 
 }
