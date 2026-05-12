@@ -73,8 +73,12 @@ class SpecificStringsPrinter {
         out.println();
     }
 
-    void printEqualLinesStep4() {
-        out.print("========================");
+    void printEqualLinesStep4(final int numberOf2Dposition) {
+        final int digitsOfDelimiter = 3;
+        final int digitsOf2Dposition = 6;
+        final int neededEquals = digitsOf2Dposition * numberOf2Dposition + digitsOfDelimiter * (numberOf2Dposition - 1);
+        for (int i = 0; i < neededEquals; i++)
+            out.print("=");
         out.println();
     }
 

@@ -75,7 +75,7 @@ class Step4Test {
             final ConstrainedInteger b = new ConstrainedInteger(sc.nextInt(), zeroTo9);
 
             printer.print2DpositionNtimesDelimiter(w, a, b);
-            printer.printEqualLinesStep4();
+            printer.printEqualLinesStep4(w.getValue());
 
             assertEquals("(7, 8) | (7, 8) | (7, 8)", out.readLine());
             assertEquals("========================", out.readLine());

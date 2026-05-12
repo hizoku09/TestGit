@@ -11,7 +11,7 @@ public final class ConstrainedInteger {
         this.constraint.validate(value);
         this.value = value;
     }
-
+    
     public int getValue() {
         return value;
     }
