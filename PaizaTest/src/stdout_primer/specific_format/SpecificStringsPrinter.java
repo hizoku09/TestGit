@@ -40,7 +40,7 @@ class SpecificStringsPrinter {
             if (i == lasttime) {
                 out.println();
             } else {
-                printVerticalLineDelimiter();
+                out.print(" | ");
             }
         }
     }
@@ -59,31 +59,26 @@ class SpecificStringsPrinter {
             if (j == 9)
                 out.println();
             else
-                printVerticalLineDelimiter();
+                out.print(" | ");
         }
     }
 
     void printEqualLines() {
+        final int digitsOfDelimiter = 3;
         final int digitsOfProduct = 2;
-        final int verticalLine = 8;
-        final int paddedHalfWitdhSpace = 3;
-        for (int j = 0; j < digitsOfProduct * 9 + paddedHalfWitdhSpace * verticalLine; j++) {
+        final int neededEquals = digitsOfProduct * 9 + digitsOfDelimiter * (9 - 1);
+        for (int j = 0; j < neededEquals; j++)
             out.print("=");
-        }
         out.println();
     }
 
-    void printEqualLinesStep4(final int numberOf2Dposition) {
+    void printEqualLinesFor2Dposition(final int numberOf2Dposition) {
         final int digitsOfDelimiter = 3;
         final int digitsOf2Dposition = 6;
         final int neededEquals = digitsOf2Dposition * numberOf2Dposition + digitsOfDelimiter * (numberOf2Dposition - 1);
         for (int i = 0; i < neededEquals; i++)
             out.print("=");
         out.println();
-    }
-
-    void printVerticalLineDelimiter() {
-        out.print(" | ");
     }
 
 }
