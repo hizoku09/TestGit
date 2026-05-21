@@ -80,7 +80,7 @@ class Step4Test {
             final int lasttime = h.getValue() - 1;
             for (int i = 0; i < h.getValue(); i++) {
                 printer.print2DpositionNtimesDelimiter(w, a, b);
-                if (i != lasttime)
+                if (i < lasttime)
                     printer.printEqualLinesFor2Dposition(w.getValue());
             }
 
