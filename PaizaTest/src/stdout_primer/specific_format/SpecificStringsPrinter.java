@@ -80,5 +80,31 @@ class SpecificStringsPrinter {
             out.print("=");
         out.println();
     }
+    
+    void printPadded2DpositionNtimesDelimiter(final ConstrainedInteger n, final ConstrainedInteger x, final ConstrainedInteger y) {
+        final int lasttime = n.getValue() - 1;
+
+        for (int i = 0; i < n.getValue(); i++) {
+            printPadded2Dposition(x, y);
+            if (i == lasttime) {
+                out.println();
+            } else {
+                out.print(" | ");
+            }
+        }
+    }
+    
+    void printPadded2Dposition(final ConstrainedInteger x, final ConstrainedInteger y) {
+        out.printf("(%9d, %9d)", x.getValue(), y.getValue());
+    }
+    
+    void printEqualLinesForPadded2Dposition(final int numberOf2Dposition) {
+        final int digitsOfDelimiter = 3;
+        final int digitsOf2Dposition = 4 + 9 * 2;
+        final int neededEquals = digitsOf2Dposition * numberOf2Dposition + digitsOfDelimiter * (numberOf2Dposition - 1);
+        for (int i = 0; i < neededEquals; i++)
+            out.print("=");
+        out.println();
+    }
 
 }
