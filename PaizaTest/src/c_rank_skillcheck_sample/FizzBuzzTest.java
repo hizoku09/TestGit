@@ -37,19 +37,34 @@ class FizzBuzzTest {
         System.setOut(originalOut);
     }
 
-//    @Test
-//    @DisplayName("全体テスト")
-//    void testAll() {
-//        in.inputln(input2);
-//        
-//        Boss.main(null);
-//        
-//        assertEquals("(999999999,         0) | (999999999,         0)", out.readLine());
-//        assertEquals("===============================================", out.readLine());
-//        assertEquals("(999999999,         0) | (999999999,         0)", out.readLine());
-//        assertEquals("===============================================", out.readLine());
-//        assertEquals("(999999999,         0) | (999999999,         0)", out.readLine());
-//    }
+    @Test
+    @DisplayName("全体テスト")
+    void testAll() {
+        in.inputln(input2);
+        
+        FizzBuzz.main(null);
+        
+        assertEquals("1", out.readLine());
+        assertEquals("2", out.readLine());
+        assertEquals("Fizz", out.readLine());
+        assertEquals("4", out.readLine());
+        assertEquals("Buzz", out.readLine());
+        assertEquals("Fizz", out.readLine());
+        assertEquals("7", out.readLine());
+        assertEquals("8", out.readLine());
+        assertEquals("Fizz", out.readLine());
+        assertEquals("Buzz", out.readLine());
+        assertEquals("11", out.readLine());
+        assertEquals("Fizz", out.readLine());
+        assertEquals("13", out.readLine());
+        assertEquals("14", out.readLine());
+        assertEquals("Fizz Buzz", out.readLine());
+        assertEquals("16", out.readLine());
+        assertEquals("17", out.readLine());
+        assertEquals("Fizz", out.readLine());
+        assertEquals("19", out.readLine());
+        assertEquals("Buzz", out.readLine());
+    }
 
     @Test
     @DisplayName("整数 N が入力として与えられます。\n"

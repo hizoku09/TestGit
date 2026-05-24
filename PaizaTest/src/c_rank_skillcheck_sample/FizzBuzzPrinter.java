@@ -10,18 +10,25 @@ class FizzBuzzPrinter {
     }
 
     void printFizzBuzz(final int n) {
-        final int fizz = n % 3;
-        final int buzz = n % 5;
-        
-        if ((fizz == 0) && (buzz == 0)) {
+        if (isFizz(n) && isBuzz(n)) {
             out.print("Fizz Buzz\n");
-        } else if (fizz == 0) {
+        } else if (isFizz(n)) {
             out.print("Fizz\n");
-        } else if (buzz == 0) {
+        } else if (isBuzz(n)) {
             out.print("Buzz\n");
         } else {
             out.printf("%d\n", n);
         }
+    }
+
+    boolean isBuzz(final int n) {
+        final int buzz = n % 5;
+        return buzz == 0;
+    }
+
+    boolean isFizz(final int n) {
+        final int fizz = n % 3;
+        return fizz == 0;
     }
 
 }
