@@ -7,38 +7,29 @@ import valueobjects.ConstrainedInteger;
 final class CRankPrinter {
 
     private final PrintStream out;
+    private static final int[] COIN_VALUES = {500, 100, 50, 10, 5, 1};
 
     CRankPrinter(final PrintStream out) {
         this.out = out;
     }
 
     void printCoinCountForPayment(final ConstrainedInteger amountToPay) {
-        int amount = amountToPay.getValue();
-        int coin = 0;
-
-        while (amount > 0) {
-            if (amount >= 500) {
-                coin++;
-                amount -= 500;
-            } else if (amount >= 100) {
-                coin++;
-                amount -= 100;
-            } else if (amount >= 50) {
-                coin++;
-                amount -= 50;
-            } else if (amount >= 10) {
-                coin++;
-                amount -= 10;
-            } else if (amount >= 5) {
-                coin++;
-                amount -= 5;
-            } else if (amount >= 1) {
-                coin++;
-                amount -= 1;
-            }
-        }
-        
-        out.printf("%d", coin);
+        final int totalCoins = totalCoinCount(amountToPay.getValue(), COIN_VALUES);
+        out.printf("%d", totalCoins);
     }
 
+    private int totalCoinCount(final int amount, final int[] coinValues) {
+        int totalCoinCount = 0;
+        int remainingAmount = amount;
+
+        for (final int coinValue : coinValues) {
+            final int requiredCoins = remainingAmount / coinValue;
+            final int paidByThisCoin = requiredCoins * coinValue;
+            totalCoinCount += requiredCoins;
+            remainingAmount -= paidByThisCoin;
+        }
+        
+        return totalCoinCount;
+    }
+    
 }

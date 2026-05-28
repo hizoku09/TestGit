@@ -16,4 +16,9 @@ public final class ConstrainedInteger {
         return value;
     }
     
+    public ConstrainedInteger add(final int other) {
+        final int added = this.value + other;
+        return new ConstrainedInteger(added, constraint);
+    }
+    
 }
