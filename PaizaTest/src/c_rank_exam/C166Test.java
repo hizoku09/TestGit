@@ -56,7 +56,7 @@ class C166Test {
         in.inputln(input1);
 
         try (Scanner sc = new Scanner(System.in)) {
-            final CRankPrinter printer = new CRankPrinter(System.out);
+            final AmountOfCoinsPrinter printer = new AmountOfCoinsPrinter(System.out);
             final IntRange oneTo1000 = new IntRange(1, 1000);
             final ConstrainedInteger x = new ConstrainedInteger(sc.nextInt(), oneTo1000);
 
@@ -71,7 +71,7 @@ class C166Test {
         in.inputln(input2);
 
         try (Scanner sc = new Scanner(System.in)) {
-            final CRankPrinter printer = new CRankPrinter(System.out);
+            final AmountOfCoinsPrinter printer = new AmountOfCoinsPrinter(System.out);
             final IntRange oneTo1000 = new IntRange(1, 1000);
             final ConstrainedInteger x = new ConstrainedInteger(sc.nextInt(), oneTo1000);
 

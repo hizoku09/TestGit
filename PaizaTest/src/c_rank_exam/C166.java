@@ -9,7 +9,7 @@ class C166 {
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
-            final CRankPrinter printer = new CRankPrinter(System.out);
+            final AmountOfCoinsPrinter printer = new AmountOfCoinsPrinter(System.out);
             final IntRange oneTo1000 = new IntRange(1, 1000);
             final ConstrainedInteger x = new ConstrainedInteger(sc.nextInt(), oneTo1000);
 

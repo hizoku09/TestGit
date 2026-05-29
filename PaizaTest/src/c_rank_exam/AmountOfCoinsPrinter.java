@@ -4,12 +4,12 @@ import java.io.PrintStream;
 
 import valueobjects.ConstrainedInteger;
 
-final class CRankPrinter {
+final class AmountOfCoinsPrinter {
 
     private final PrintStream out;
     private static final int[] COIN_VALUES = {500, 100, 50, 10, 5, 1};
 
-    CRankPrinter(final PrintStream out) {
+    AmountOfCoinsPrinter(final PrintStream out) {
         this.out = out;
     }
 
