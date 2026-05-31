@@ -20,5 +20,16 @@ public final class ConstrainedInteger {
         final int added = this.value + other;
         return new ConstrainedInteger(added, constraint);
     }
+
+    public ConstrainedInteger subtract(final int other) {
+        // TODO 自動生成されたメソッド・スタブ
+        final int subtracted = this.value - other;
+        return new ConstrainedInteger(subtracted, constraint);
+    }
+    
+    public ConstrainedInteger divide(final int other) {
+        final int divided = this.value / other;
+        return new ConstrainedInteger(divided, constraint);
+    }
     
 }
