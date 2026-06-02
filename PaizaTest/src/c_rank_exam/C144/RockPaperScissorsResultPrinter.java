@@ -1,9 +1,12 @@
-package c_rank_exam;
+package c_rank_exam.C144;
 
 import java.io.PrintStream;
 
 final class RockPaperScissorsResultPrinter {
     private final PrintStream out;
+    private static final String rock = "G";
+    private static final String scissors = "C";
+    private static final String paper = "P";
 
     RockPaperScissorsResultPrinter(final PrintStream out) {
         this.out = out;
@@ -28,11 +31,11 @@ final class RockPaperScissorsResultPrinter {
     }
 
     private boolean isWin(final String playerChoice, final String enemyChoice) {
-        if (playerChoice.equals("G") && enemyChoice.equals("C"))
+        if (playerChoice.equals(rock) && enemyChoice.equals(scissors))
             return true;
-        if (playerChoice.equals("C") && enemyChoice.equals("P"))
+        if (playerChoice.equals(scissors) && enemyChoice.equals(paper))
             return true;
-        if (playerChoice.equals("P") && enemyChoice.equals("G"))
+        if (playerChoice.equals(paper) && enemyChoice.equals(rock))
             return true;
         return false;
     }

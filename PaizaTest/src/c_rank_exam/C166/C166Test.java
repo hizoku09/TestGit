@@ -1,4 +1,4 @@
-package c_rank_exam;
+package c_rank_exam.C166;
 
 import static org.junit.jupiter.api.Assertions.*;
 

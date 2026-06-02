@@ -1,19 +1,19 @@
-package c_rank_exam;
+package c_rank_exam.C166;
 
 import java.io.PrintStream;
 
 import valueobjects.ConstrainedInteger;
 
-final class AmountOfCoinsPrinter {
+public final class AmountOfCoinsPrinter {
 
     private final PrintStream out;
     private static final int[] COIN_VALUES = {500, 100, 50, 10, 5, 1};
 
-    AmountOfCoinsPrinter(final PrintStream out) {
+    public AmountOfCoinsPrinter(final PrintStream out) {
         this.out = out;
     }
 
-    void printCoinCountForPayment(final ConstrainedInteger amountToPay) {
+    public void printCoinCountForPayment(final ConstrainedInteger amountToPay) {
         final int totalCoins = totalCoinCount(amountToPay.getValue(), COIN_VALUES);
         out.printf("%d", totalCoins);
     }
