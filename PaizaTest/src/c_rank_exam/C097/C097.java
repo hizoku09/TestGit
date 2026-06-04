@@ -10,13 +10,13 @@ class C097 {
     public static void main(String[] args) {
         // TODO 自動生成されたメソッド・スタブ
         try (Scanner sc = new Scanner(System.in)) {
-            final PrizewinnerPrinter printer = new PrizewinnerPrinter(System.out);
             final IntRange oneTo1000 = new IntRange(1, 1000);
             final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), oneTo1000);
             final ConstrainedInteger x = new ConstrainedInteger(sc.nextInt(), oneTo1000);
             final ConstrainedInteger y = new ConstrainedInteger(sc.nextInt(), oneTo1000);
+            final PrizewinnerPrinter printer = new PrizewinnerPrinter(System.out, PrizeRules.forAandB(x, y));
 
-            printer.printPrizewinner(n, x, y);
+            printer.printPrizewinner(n);
         }
     }
 
@@ -24,29 +24,66 @@ class C097 {
 
 //final class PrizewinnerPrinter {
 //    private final PrintStream out;
+//    private final List<PrizeRule> rules;
+//    private final String defaultLabel = "N";
 //
-//    public PrizewinnerPrinter(final PrintStream out) {
+//    PrizewinnerPrinter(final PrintStream out, final List<PrizeRule> rules) {
 //        this.out = out;
+//        this.rules = List.copyOf(rules);
 //    }
+//    
+//    void printPrizewinner(final ConstrainedInteger applicant) {
+//        for (int i = 1; i <= applicant.getValue(); i++) 
+//            out.println(labelFor(i));
+//    }
+//    
+//    private String labelFor(final int n) {
+//        final StringBuilder joinedLabels = new StringBuilder();
+//        final String result;
 //
-//    public void printPrizewinner(final ConstrainedInteger applicant, final ConstrainedInteger numberOfPresentA,
-//            final ConstrainedInteger numberOfPresentB) {
-//        for (int i = 1; i <= applicant.getValue(); i++) {
-//            if (isMultipleOf(i, numberOfPresentA) && isMultipleOf(i, numberOfPresentB)) {
-//                out.print("AB\n");
-//            } else if (isMultipleOf(i, numberOfPresentA)) {
-//                out.print("A\n");
-//            } else if (isMultipleOf(i, numberOfPresentB)) {
-//                out.print("B\n");
-//            } else {
-//                out.print("N\n");
+//        for (final PrizeRule rule : rules) {
+//            if (rule.matches(n)) {
+//                joinedLabels.append(rule.label());
 //            }
 //        }
+//        result = joinedLabels.length() == 0 ? defaultLabel : joinedLabels.toString();
+//        
+//        return result;
+//    }
+//    
+//}
+//
+//interface PrizeRule {
+//    boolean matches(int n);
+//    String label();
+//}
+//
+//final class PrizeRules implements PrizeRule {
+//    private final ConstrainedInteger divisor;
+//    private final String label;
+//
+//    PrizeRules(final ConstrainedInteger divisor, final String label) {
+//        this.divisor = divisor;
+//        this.label = label;
+//    }
+//    
+//    static List<PrizeRule> forAandB(ConstrainedInteger a, ConstrainedInteger b) {
+//        return List.of(
+//            new PrizeRules(a, "A"),
+//            new PrizeRules(b, "B")
+//        );
 //    }
 //
-//    private boolean isMultipleOf(final int n, final ConstrainedInteger multiple) {
-//        return n % multiple.getValue() == 0;
+//    @Override
+//    public boolean matches(final int n) {
+//        return (n % divisor.getValue()) == 0;
 //    }
+//
+//    @Override
+//    public String label() {
+//        return label;
+//    }
+//
 //}
 //
 //final class IntRange {

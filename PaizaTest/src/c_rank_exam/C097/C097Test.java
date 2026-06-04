@@ -72,13 +72,14 @@ class C097Test {
         in.inputln(input1);
 
         try (Scanner sc = new Scanner(System.in)) {
-            final PrizewinnerPrinter printer = new PrizewinnerPrinter(System.out);
             final IntRange oneTo1000 = new IntRange(1, 1000);
             final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), oneTo1000);
             final ConstrainedInteger x = new ConstrainedInteger(sc.nextInt(), oneTo1000);
             final ConstrainedInteger y = new ConstrainedInteger(sc.nextInt(), oneTo1000);
+            final PrizewinnerPrinter printer = new PrizewinnerPrinter(System.out, 
+                    PrizeRules.forAandB(x, y));
 
-            printer.printPrizewinner(n, x, y);
+            printer.printPrizewinner(n);
 
             assertEquals("N", out.readLine());
             assertEquals("A", out.readLine());
@@ -93,13 +94,14 @@ class C097Test {
         in.inputln(input2);
 
         try (Scanner sc = new Scanner(System.in)) {
-            final PrizewinnerPrinter printer = new PrizewinnerPrinter(System.out);
             final IntRange oneTo1000 = new IntRange(1, 100);
             final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), oneTo1000);
             final ConstrainedInteger x = new ConstrainedInteger(sc.nextInt(), oneTo1000);
             final ConstrainedInteger y = new ConstrainedInteger(sc.nextInt(), oneTo1000);
+            final PrizewinnerPrinter printer = new PrizewinnerPrinter(System.out, 
+                    PrizeRules.forAandB(x, y));
 
-            printer.printPrizewinner(n, x, y);
+            printer.printPrizewinner(n);
 
             assertEquals("N", out.readLine());
             assertEquals("B", out.readLine());

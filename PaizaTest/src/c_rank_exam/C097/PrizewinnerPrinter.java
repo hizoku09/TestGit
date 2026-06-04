@@ -1,32 +1,37 @@
 package c_rank_exam.C097;
 
 import java.io.PrintStream;
+import java.util.List;
 
 import valueobjects.ConstrainedInteger;
 
 final class PrizewinnerPrinter {
     private final PrintStream out;
+    private final List<PrizeRule> rules;
+    private final String defaultLabel = "N";
 
-    PrizewinnerPrinter(final PrintStream out) {
+    PrizewinnerPrinter(final PrintStream out, final List<PrizeRule> rules) {
         this.out = out;
+        this.rules = List.copyOf(rules);
     }
+    
+    void printPrizewinner(final ConstrainedInteger applicant) {
+        for (int i = 1; i <= applicant.getValue(); i++) 
+            out.println(labelFor(i));
+    }
+    
+    private String labelFor(final int n) {
+        final StringBuilder joinedLabels = new StringBuilder();
+        final String result;
 
-    void printPrizewinner(final ConstrainedInteger applicant, 
-            final ConstrainedInteger numberOfPresentA, final ConstrainedInteger numberOfPresentB) {
-        for (int i = 1; i <= applicant.getValue(); i++) {
-            if (isMultipleOf(i, numberOfPresentA) && isMultipleOf(i, numberOfPresentB)) {
-                out.print("AB\n");
-            } else if (isMultipleOf(i, numberOfPresentA)) {
-                out.print("A\n");
-            } else if (isMultipleOf(i, numberOfPresentB)) {
-                out.print("B\n");
-            } else {
-                out.print("N\n");
+        for (final PrizeRule rule : rules) {
+            if (rule.matches(n)) {
+                joinedLabels.append(rule.label());
             }
         }
+        result = joinedLabels.length() == 0 ? defaultLabel : joinedLabels.toString();
+        
+        return result;
     }
-
-    private boolean isMultipleOf(final int n, final ConstrainedInteger multiple) {
-        return n % multiple.getValue() == 0;
-    }
+    
 }
