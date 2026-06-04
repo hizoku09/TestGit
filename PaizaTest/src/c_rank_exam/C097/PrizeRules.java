@@ -13,7 +13,7 @@ final class PrizeRules implements PrizeRule {
         this.label = label;
     }
     
-    static List<PrizeRule> forAandB(ConstrainedInteger a, ConstrainedInteger b) {
+    static List<PrizeRule> forAandB(final ConstrainedInteger a, final ConstrainedInteger b) {
         return List.of(
             new PrizeRules(a, "A"),
             new PrizeRules(b, "B")
