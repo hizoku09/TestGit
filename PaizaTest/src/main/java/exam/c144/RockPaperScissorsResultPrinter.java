@@ -1,4 +1,4 @@
-package c_rank_exam.C144;
+package exam.c144;
 
 import java.io.PrintStream;
 

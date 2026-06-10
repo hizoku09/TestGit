@@ -27,5 +27,11 @@ public class StandardInputStream extends InputStream {
         sb.deleteCharAt(0);
         return result;
     }
+    
+    public void inputText(final String text) {
+        for (final String line : text.split("\\R", -1)) { // 改行を汎用扱い
+            if (!line.isEmpty()) inputln(line);
+        }
+    }
  
 }
