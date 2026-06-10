@@ -90,8 +90,8 @@ class C148 {
 //}
 //
 //final class IntRange {
-//    private final int minInclusive;
-//    private final int maxInclusive;
+//    final int minInclusive;
+//    final int maxInclusive;
 //
 //    public IntRange(final int minInclusive, final int maxInclusive) {
 //        if (minInclusive > maxInclusive) {
@@ -120,11 +120,11 @@ class C148 {
 //        this.constraint.validate(value);
 //        this.value = value;
 //    }
-//
+//    
 //    public int getValue() {
 //        return value;
 //    }
-//
+//    
 //    public ConstrainedInteger add(final int other) {
 //        final int added = this.value + other;
 //        return new ConstrainedInteger(added, constraint);
@@ -135,10 +135,10 @@ class C148 {
 //        final int subtracted = this.value - other;
 //        return new ConstrainedInteger(subtracted, constraint);
 //    }
-//
+//    
 //    public ConstrainedInteger divide(final int other) {
 //        final int divided = this.value / other;
+//        if (divided < constraint.minInclusive) return new ConstrainedInteger(constraint.minInclusive, constraint);
 //        return new ConstrainedInteger(divided, constraint);
 //    }
-//
 //}

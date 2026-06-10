@@ -1,8 +1,8 @@
 package valueobjects;
 
 public final class IntRange {
-    private final int minInclusive;
-    private final int maxInclusive;
+    final int minInclusive;
+    final int maxInclusive;
 
     public IntRange(final int minInclusive, final int maxInclusive) {
         if (minInclusive > maxInclusive) {

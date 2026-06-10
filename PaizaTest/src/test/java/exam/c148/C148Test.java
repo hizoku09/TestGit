@@ -25,7 +25,6 @@ class C148Test {
     private final PrintStream originalOut = System.out;
     private final StandardInputStream in = new StandardInputStream();
     private final StandardOutputStream out = new StandardOutputStream();
-    private final String input1 = "5 10\n" + "5\n" + "11\n" + "20\n" + "8\n" + "7";
     private final String input2 = "3 9\n" + "10\n" + "4\n" + "4";
 
     @BeforeEach
@@ -41,43 +40,22 @@ class C148Test {
     }
 
     static Stream<TestCase> cases() {
-        return Stream.of(new TestCase("c148/case1.in", "c148/case1.out"));
+        return Stream.of(
+                new TestCase("c148/case1.in", "c148/case1.out"),
+                new TestCase("c148/case2.in", "c148/case2.out"),
+                new TestCase("c148/case6.in", "c148/case6.out"));
     }
 
-    @Test
     @DisplayName("全体テスト")
-    void testAll() {
-        in.inputln(input1);
-
-        C148.main(null);
-
-        assertEquals("11", out.readLine());
-    }
-
     @ParameterizedTest
     @MethodSource("cases")
-    void testAll2(final TestCase tc) {
-        in.inputText(TestResources.readResourceText(tc.inputResource));
+    void testAll(final TestCase testCase) {
+        in.inputText(TestResources.readResourceText(testCase.inputResource));
         C148.main(null);
 
-        final String expected = TestResources.readResourceText(tc.expectedResource);
+        final String expected = TestResources.readResourceText(testCase.expectedResource);
         for (final String line : expected.split("\\R")) {
             assertEquals(line, out.readLine());
-        }
-    }
-
-    static final class TestCase {
-        final String inputResource;
-        final String expectedResource;
-
-        TestCase(final String inputResource, final String expectedResource) {
-            this.inputResource = inputResource;
-            this.expectedResource = expectedResource;
-        }
-
-        @Override
-        public String toString() {
-            return inputResource;
         }
     }
 
@@ -91,27 +69,6 @@ class C148Test {
 //    + "・1 行目に戦闘回数の N と、最初のあなたのレベル L が与えられます。\n"
 //    + "・続く N 行の各行には i 番目 (1 ≦ i ≦ N) の戦闘相手のレベルが x_i であるという情報が与えられます。\n"
 //    + "・入力は合計で N+1 行からなり、入力値最終行の末尾に改行が 1 つ入ります。"
-    @Test
-    void testprintPlayerLevelAfterBattle1() {
-        in.inputln(input1);
-
-        try (Scanner sc = new Scanner(System.in)) {
-            final PlayerLevelPrinter printer = new PlayerLevelPrinter(System.out);
-            final IntRange oneTo100000 = new IntRange(1, 100000);
-            final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), oneTo100000);
-            final IntRange oneTo10000 = new IntRange(1, 10000);
-            final ConstrainedInteger l = new ConstrainedInteger(sc.nextInt(), oneTo10000);
-            final ConstrainedInteger x[] = new ConstrainedInteger[n.getValue()];
-            for (int i = 0; i < n.getValue(); i++) {
-                x[i] = new ConstrainedInteger(sc.nextInt(), oneTo10000);
-            }
-
-            printer.printPlayerLevelAfterBattle(l, x);
-
-            assertEquals("11", out.readLine());
-        }
-    }
-
     @Test
     void testprintPlayerLevelAfterBattle2() {
         in.inputln(input2);

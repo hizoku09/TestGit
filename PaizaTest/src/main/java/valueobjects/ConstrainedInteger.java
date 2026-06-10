@@ -29,7 +29,7 @@ public final class ConstrainedInteger {
     
     public ConstrainedInteger divide(final int other) {
         final int divided = this.value / other;
+        if (divided < constraint.minInclusive) return new ConstrainedInteger(constraint.minInclusive, constraint);
         return new ConstrainedInteger(divided, constraint);
     }
-    
 }
