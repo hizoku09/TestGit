@@ -1,4 +1,4 @@
-package c_rank_exam.C097;
+package exam.c097;
 
 import java.util.Scanner;
 
