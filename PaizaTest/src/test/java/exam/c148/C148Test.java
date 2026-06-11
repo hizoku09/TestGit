@@ -14,6 +14,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import exam.testcasereader.TestCase;
+import exam.testcasereader.TestResources;
 import valueobjects.ConstrainedInteger;
 import valueobjects.IntRange;
 import valueobjects.StandardInputStream;

@@ -28,65 +28,77 @@ class C148 {
 
 //final class PlayerLevelPrinter {
 //    private final PrintStream out;
-//    private static final int LevelUpConditionValue = 2;
-//    private static final int LevelDownConditionValue = 2;
+//    private final PlayerLevelCalculator calculator;
 //
 //    PlayerLevelPrinter(final PrintStream out) {
 //        this.out = out;
+//        this.calculator = new PlayerLevelCalculator();
 //    }
 //
-//    void printPlayerLevelAfterBattle(final ConstrainedInteger playerLevel, final ConstrainedInteger[] enemyLevel) {
-//        final int battleTimes = enemyLevel.length;
-//        final ConstrainedInteger[] playerLevelBeforeBattle = new ConstrainedInteger[battleTimes];
-//        final ConstrainedInteger[] playerLevelAfterBattle = new ConstrainedInteger[battleTimes];
-//        playerLevelBeforeBattle[0] = playerLevel;
+//    void printPlayerLevelAfterBattle(
+//            final ConstrainedInteger playerLevel, 
+//            final ConstrainedInteger[] enemyLevels) {
+//        final int finalPlayerLevel = 
+//                calculator.calculateAfterBattles(playerLevel.getValue(), enemyLevels);
 //
-//        battleAndLevelUpOrDown(playerLevelBeforeBattle, enemyLevel, playerLevelAfterBattle, battleTimes);
+//        out.printf("%d", finalPlayerLevel);
+//    }
+//}
 //
-//        final int lastBattleTime = battleTimes - 1;
-//        final int playerLastLevel = playerLevelAfterBattle[lastBattleTime].getValue();
-//        out.printf("%d", playerLastLevel);
+//final class PlayerLevelCalculator {
+//    int calculateAfterBattles(final int initialPlayerLevel, final ConstrainedInteger[] enemyLevels) {
+//        final int[] playerLevelHistory = createPlayerLevelHistory(initialPlayerLevel, enemyLevels);
+//        
+//        return lastValueOf(playerLevelHistory);
 //    }
 //
-//    private void battleAndLevelUpOrDown(final ConstrainedInteger[] playerLevelBeforeBattle,
-//            final ConstrainedInteger[] enemyLevel, final ConstrainedInteger[] playerLevelAfterBattle,
-//            final int battleTimes) {
-//        final int lastBattleTime = battleTimes - 1;
+//    private int[] createPlayerLevelHistory(
+//            final int initialPlayerLevel,
+//            final ConstrainedInteger[] enemyLevels) {
 //
-//        for (int i = 0; i < battleTimes; i++) {
-//            if (isWin(playerLevelBeforeBattle[i], enemyLevel[i])) {
-//                playerLevelAfterBattle[i] = playerLevelUp(playerLevelBeforeBattle[i], enemyLevel[i]);
-//            } else if (isLose(playerLevelBeforeBattle[i], enemyLevel[i])) {
-//                playerLevelAfterBattle[i] = playerLevelDown(playerLevelBeforeBattle[i]);
-//            } else {
-//                playerLevelAfterBattle[i] = playerLevelBeforeBattle[i];
-//            }
+//        final int[] playerLevelHistory = new int[enemyLevels.length + 1];
+//        playerLevelHistory[0] = initialPlayerLevel;
 //
-//            if (i != lastBattleTime) {
-//                playerLevelBeforeBattle[i + 1] = playerLevelAfterBattle[i];
-//            }
+//        for (int i = 0; i < enemyLevels.length; i++) {
+//            final int levelBeforeBattle = playerLevelHistory[i];
+//            final int enemyLevel = enemyLevels[i].getValue();
+//            playerLevelHistory[i + 1] = calculateAfterBattle(levelBeforeBattle, enemyLevel);
 //        }
+//
+//        return playerLevelHistory;
 //    }
 //
-//    private ConstrainedInteger playerLevelUp(final ConstrainedInteger playerLevel,
-//            final ConstrainedInteger enemyLevel) {
-//        final ConstrainedInteger playerLevelAfterWin = playerLevel.add(enemyLevel.getValue() / LevelUpConditionValue);
-//        return playerLevelAfterWin;
+//    private int lastValueOf(final int[] values) {
+//        return values[values.length - 1];
+//    }
+//    
+//    private int calculateAfterBattle(final int playerLevel, final int enemyLevel) {
+//        if (isPlayerWinner(playerLevel, enemyLevel)) {
+//            return levelAfterPlayerWins(playerLevel, enemyLevel);
+//        }
+//
+//        if (isPlayerLoser(playerLevel, enemyLevel)) {
+//            return levelAfterPlayerLoses(playerLevel);
+//        }
+//
+//        return playerLevel;
 //    }
 //
-//    private ConstrainedInteger playerLevelDown(final ConstrainedInteger playerLevel) {
-//        final ConstrainedInteger playerLevelAfterLose = playerLevel.divide(LevelDownConditionValue);
-//        return playerLevelAfterLose;
+//    private boolean isPlayerWinner(final int playerLevel, final int enemyLevel) {
+//        return playerLevel > enemyLevel;
 //    }
 //
-//    private boolean isWin(final ConstrainedInteger playerLevel, final ConstrainedInteger enemyLevel) {
-//        return playerLevel.getValue() > enemyLevel.getValue();
+//    private boolean isPlayerLoser(final int playerLevel, final int enemyLevel) {
+//        return playerLevel < enemyLevel;
 //    }
 //
-//    private boolean isLose(final ConstrainedInteger playerLevel, final ConstrainedInteger enemyLevel) {
-//        return playerLevel.getValue() < enemyLevel.getValue();
+//    private int levelAfterPlayerWins(final int playerLevel, final int enemyLevel) {
+//        return playerLevel + enemyLevel / 2;
 //    }
 //
+//    private int levelAfterPlayerLoses(final int playerLevel) {
+//        return playerLevel / 2;
+//    }
 //}
 //
 //final class IntRange {
@@ -138,7 +150,6 @@ class C148 {
 //    
 //    public ConstrainedInteger divide(final int other) {
 //        final int divided = this.value / other;
-//        if (divided < constraint.minInclusive) return new ConstrainedInteger(constraint.minInclusive, constraint);
 //        return new ConstrainedInteger(divided, constraint);
 //    }
 //}

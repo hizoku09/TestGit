@@ -1,13 +1,13 @@
-package exam.c148;
+package exam.testcasereader;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
-final class TestResources {
+final public class TestResources {
     private TestResources() {}
 
-    static String readResourceText(final String resourcePath) {
+    public static String readResourceText(final String resourcePath) {
         final InputStream resourceStream = openResourceStream(resourcePath);
         try (InputStream is = resourceStream) {
             return readAllUtf8(is);
