@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import exam.testcasereader.TestCase;
-import exam.testcasereader.TestResources;
+import testcasereader.TestCase;
+import testcasereader.TestResources;
 import valueobjects.ConstrainedInteger;
 import valueobjects.IntRange;
 import valueobjects.StandardInputStream;
@@ -43,9 +43,9 @@ class C148Test {
 
     static Stream<TestCase> cases() {
         return Stream.of(
-                new TestCase("c148/case1.in", "c148/case1.out"),
-                new TestCase("c148/case2.in", "c148/case2.out"),
-                new TestCase("c148/case6.in", "c148/case6.out"));
+                new TestCase("exam/c148/case1.in", "exam/c148/case1.out"),
+                new TestCase("exam/c148/case2.in", "exam/c148/case2.out"),
+                new TestCase("exam/c148/case6.in", "exam/c148/case6.out"));
     }
 
     @DisplayName("全体テスト")

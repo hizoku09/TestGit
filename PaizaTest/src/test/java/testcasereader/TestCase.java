@@ -1,4 +1,4 @@
-package exam.testcasereader;
+package testcasereader;
 
 public final class TestCase {
     public final String inputResource;

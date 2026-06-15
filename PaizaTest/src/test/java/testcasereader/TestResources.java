@@ -1,4 +1,4 @@
-package exam.testcasereader;
+package testcasereader;
 
 import java.io.IOException;
 import java.io.InputStream;
