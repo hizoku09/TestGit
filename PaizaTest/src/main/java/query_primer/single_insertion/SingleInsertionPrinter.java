@@ -6,24 +6,32 @@ import valueobjects.ConstrainedInteger;
 
 final class SingleInsertionPrinter {
     private final PrintStream out;
-
+    private final SingleInsertionCalculator calculator;
+    
     SingleInsertionPrinter(final PrintStream out) {
         this.out = out;
+        this.calculator = new SingleInsertionCalculator();
+    }
+    
+    void printSingleInsertion(
+            final ConstrainedInteger insertionIndex,
+            final ConstrainedInteger insertionValue,
+            final ConstrainedInteger[] sourceValues) {
+
+        final int[] insertedValues = calculator.insertAt(
+                sourceValues,
+                insertionIndex,
+                insertionValue);
+
+        printEachLine(insertedValues);
+    }
+    
+    
+
+    private void printEachLine(final int[] values) {
+        for (final int value : values) {
+            out.println(value);
+        }
     }
 
-    void printSingleInsertion(final ConstrainedInteger order, ConstrainedInteger targetNumber, final ConstrainedInteger[] arrays) {
-        final int[] results = new int[arrays.length + 1];
-        
-        for (int i = 0; i < order.getValue(); i++) {
-            results[i] = arrays[i].getValue();
-        }
-        results[order.getValue()] = targetNumber.getValue();
-        for(int j = order.getValue() + 1; j < arrays.length + 1; j++) {
-            results[j] = arrays[j - 1].getValue();
-        }
-        
-        for (final int result : results) {
-            out.println(result);
-        }
-    }
 }
