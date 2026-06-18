@@ -8,7 +8,7 @@ import valueobjects.IntRange;
 class Single_insertion {
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {
-            final SingleInsertionPrinter printer = new SingleInsertionPrinter (System.out);
+            final SingleInsertionPrinter printer = new SingleInsertionPrinter(System.out);
             final IntRange oneTo100000 = new IntRange(1, 100000);
             final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), oneTo100000);
             final ConstrainedInteger k = new ConstrainedInteger(sc.nextInt(), oneTo100000);
