@@ -17,7 +17,7 @@ import testcasereader.TestResources;
 import valueobjects.StandardInputStream;
 import valueobjects.StandardOutputStream;
 
-class Single_insertionTest {
+class SingleInsertionTest {
     private final InputStream originalIn = System.in;
     private final PrintStream originalOut = System.out;
     private final StandardInputStream in = new StandardInputStream();
@@ -47,7 +47,7 @@ class Single_insertionTest {
     @MethodSource("cases")
     void testAll(final TestCase testCase) {
         in.inputText(TestResources.readResourceText(testCase.inputResource));
-        Single_insertion.main(null);
+        SingleInsertion.main(null);
 
         final String expected = TestResources.readResourceText(testCase.expectedResource);
         for (final String line : expected.split("\\R")) {

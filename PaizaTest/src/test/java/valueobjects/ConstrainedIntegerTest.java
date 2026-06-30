@@ -12,27 +12,24 @@ class ConstrainedIntegerTest {
     void testIllegalCheck_integer() {
         final int Q = 4;
         
-        final IntRange oneToHundred = new IntRange(1, 101);
+        final IntRange oneTo100 = new IntRange(1, 100);
+        final ConstrainedInteger naturalNumber1To100 = 
+                new ConstrainedInteger(Q, oneTo100);
 
-        final ConstrainedInteger naturalNumberOneToHundred = 
-                new ConstrainedInteger(Q, oneToHundred);
-
-        assertEquals(Q, naturalNumberOneToHundred.getValue());
+        assertEquals(Q, naturalNumber1To100.getValue());
     }
 
     @Test
     @DisplayName("最大値・最小値のバリデーションチェック")
     void testMax_Min_Validation() {
-        final int[] Q = { 0, 101 };
+        final IntRange oneTo100 = new IntRange(1, 100);
         
-        final IntRange oneToHundred = new IntRange(1, 101);
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            ConstrainedInteger naturalNumber1 = new ConstrainedInteger(Q[0], oneToHundred);
-        });
-        assertThrows(IllegalArgumentException.class, () -> {
-            ConstrainedInteger naturalNumber2 = new ConstrainedInteger(Q[1], oneToHundred);
-        });
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new ConstrainedInteger(0, oneTo100));
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new ConstrainedInteger(101, oneTo100));
     }
 
 }
