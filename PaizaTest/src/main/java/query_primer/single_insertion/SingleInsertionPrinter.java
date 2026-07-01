@@ -5,7 +5,7 @@ import java.io.PrintStream;
 final class SingleInsertionPrinter {
     private final PrintStream out;
 
-    SingleInsertionPrinter(final PrintStream out) {
+    private SingleInsertionPrinter(final PrintStream out) {
         this.out = out;
     }
 
@@ -18,6 +18,10 @@ final class SingleInsertionPrinter {
             out.println(value);
         }
         
+    }
+    
+    public static SingleInsertionPrinter getInstance(final PrintStream out) {
+        return new SingleInsertionPrinter(out);
     }
 
 }
