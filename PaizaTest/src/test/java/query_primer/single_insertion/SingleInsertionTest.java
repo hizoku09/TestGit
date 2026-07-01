@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.AfterEach;
@@ -14,6 +16,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import testcasereader.TestCase;
 import testcasereader.TestResources;
+import valueobjects.ConstrainedInteger;
+import valueobjects.IntRange;
 import valueobjects.StandardInputStream;
 import valueobjects.StandardOutputStream;
 
@@ -52,6 +56,35 @@ class SingleInsertionTest {
         final String expected = TestResources.readResourceText(testCase.expectedResource);
         for (final String line : expected.split("\\R")) {
             assertEquals(line, out.readLine());
+        }
+    }
+    
+    @DisplayName("学習用テスト List")
+    void testList() {
+        final List<Integer> test = new ArrayList<Integer>();
+        test.add(1);
+        test.add(2);
+        test.add(3);
+        final int[] expected = {1, 2, 3};
+        for (int i = 0; i < 2; i++) {
+            assertEquals(test.get(i), expected[i]);
+        }
+    }
+    
+    @DisplayName("学習用テスト2 List")
+    void testConstrainedIntegerList() {
+        final List<ConstrainedInteger> test = new ArrayList<ConstrainedInteger>();
+        final IntRange zeroTo100 = new IntRange(0, 100);
+        test.add(new ConstrainedInteger(1, zeroTo100));
+        test.add(new ConstrainedInteger(2, zeroTo100));
+        test.add(new ConstrainedInteger(3, zeroTo100));
+        final List<Integer> expected = new ArrayList<Integer>();
+        expected.add(1);
+        expected.add(2);
+        expected.add(3);
+        
+        for (int i = 0; i < 2; i++) {
+            assertEquals(test.get(i).getValue(), expected.get(i));
         }
     }
     

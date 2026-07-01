@@ -1,39 +1,25 @@
 package query_primer.single_insertion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import valueobjects.ConstrainedInteger;
 
 final class SingleInsertionCalculator {
-    int[] insertAt(
-            final ConstrainedInteger[] sourceValues,
+    List<Integer> insertAt(
+            final List<ConstrainedInteger> sourceValues,
             final ConstrainedInteger insertionIndex,
             final ConstrainedInteger insertionValue) {
 
-        validateInsertionIndex(insertionIndex, sourceValues.length);
-        final int[] result = new int[sourceValues.length + 1];
-
-        for (int index = 0; index < result.length; index++) {
-            result[index] = valueAt(
-                    sourceValues, insertionIndex, insertionValue, index);
+        final List<Integer> result = new ArrayList<Integer>();
+        
+        validateInsertionIndex(insertionIndex, sourceValues.size());
+        for (ConstrainedInteger original : sourceValues) {
+            result.add(original.getValue());
         }
+        result.add(insertionIndex.getValue(), insertionValue.getValue());
 
         return result;
-    }
-    
-    private int valueAt(
-            final ConstrainedInteger[] sourceValues,
-            final ConstrainedInteger insertionIndex,
-            final ConstrainedInteger insertionValue,
-            final int index) {
-
-        if (index < insertionIndex.getValue()) {
-            return sourceValues[index].getValue();
-        }
-
-        if (index == insertionIndex.getValue()) {
-            return insertionValue.getValue();
-        }
-
-        return sourceValues[index - 1].getValue();
     }
     
     private void validateInsertionIndex(

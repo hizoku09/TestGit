@@ -1,6 +1,7 @@
 package query_primer.single_insertion;
 
 import java.io.PrintStream;
+import java.util.List;
 
 final class SingleInsertionPrinter {
     private final PrintStream out;
@@ -8,20 +9,15 @@ final class SingleInsertionPrinter {
     private SingleInsertionPrinter(final PrintStream out) {
         this.out = out;
     }
-
-    void printSingleInsertion(final int[] sourceValues) {
-        printEachLine(sourceValues);
+    
+    public static SingleInsertionPrinter newInstance(final PrintStream out) {
+        return new SingleInsertionPrinter(out);
     }
 
-    private void printEachLine(final int[] values) {
-        for (final int value : values) {
+    void printSingleInsertion(final List<Integer> sourceValues) {
+        for (final Integer value : sourceValues) {
             out.println(value);
         }
-        
-    }
-    
-    public static SingleInsertionPrinter getInstance(final PrintStream out) {
-        return new SingleInsertionPrinter(out);
     }
 
 }
