@@ -6,6 +6,15 @@ import java.util.List;
 import valueobjects.ConstrainedInteger;
 
 final class SingleInsertionCalculator {
+    private static final SingleInsertionCalculator INSTANCE = new SingleInsertionCalculator();
+    private SingleInsertionCalculator() {
+        // TODO 自動生成されたコンストラクター・スタブ
+    }
+    
+    public static SingleInsertionCalculator getInstance() {
+        return INSTANCE;
+    }
+    
     List<Integer> insertAt(
             final List<ConstrainedInteger> sourceValues,
             final ConstrainedInteger insertionIndex,

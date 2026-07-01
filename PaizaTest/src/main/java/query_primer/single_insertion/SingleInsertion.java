@@ -16,7 +16,7 @@ class SingleInsertion {
 
     static void run(final InputStream input, final PrintStream output) {
         try (Scanner sc = new Scanner(input)) {
-            final SingleInsertionCalculator calculator = new SingleInsertionCalculator();
+            final SingleInsertionCalculator calculator = SingleInsertionCalculator.getInstance();
             final SingleInsertionPrinter printer = SingleInsertionPrinter.newInstance(output);
             final IntRange oneTo100_000 = new IntRange(1, 100000);
             final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), oneTo100_000);
