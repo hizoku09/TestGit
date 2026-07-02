@@ -42,8 +42,7 @@ class SingleInsertionTest {
     static Stream<TestCase> cases() {
         return Stream.of(
                 new TestCase("query_primer.single_insertion/case1.in", "query_primer.single_insertion/case1.out"),
-                new TestCase("query_primer.single_insertion/case2.in", "query_primer.single_insertion/case2.out")
-                );
+                new TestCase("query_primer.single_insertion/case2.in", "query_primer.single_insertion/case2.out"));
     }
 
     @DisplayName("全体テスト")
@@ -51,6 +50,7 @@ class SingleInsertionTest {
     @MethodSource("cases")
     void testAll(final TestCase testCase) {
         in.inputText(TestResources.readResourceText(testCase.inputResource));
+
         SingleInsertion.main(null);
 
         final String expected = TestResources.readResourceText(testCase.expectedResource);
@@ -58,19 +58,44 @@ class SingleInsertionTest {
             assertEquals(line, out.readLine());
         }
     }
-    
+
+    @DisplayName("標準入力取得テスト")
+    void testfetch() {
+        final List<Integer> input1 = new ArrayList<Integer>();
+        input1.add(3);
+        input1.add(1);
+        input1.add(57);
+        final List<Integer> input2 = new ArrayList<Integer>();
+        input2.add(10);
+        input2.add(6);
+        input2.add(45);
+        final SingleInsertionFetcher fetcher = SingleInsertionFetcher.newInstance(in);
+
+        in.inputText("3 1 57");
+        final List<ConstrainedInteger> testList1 = fetcher.fetch();
+        for (int i = 0; i < 2; i++) {
+            assertEquals(input1.get(i), testList1.get(i).getValue());
+        }
+        
+        in.inputText("10 6 45");
+        final List<ConstrainedInteger> testList2 = fetcher.fetch();
+        for (int i = 0; i < 2; i++) {
+            assertEquals(input1.get(i), testList2.get(i).getValue());
+        }
+    }
+
     @DisplayName("学習用テスト List")
     void testList() {
         final List<Integer> test = new ArrayList<Integer>();
         test.add(1);
         test.add(2);
         test.add(3);
-        final int[] expected = {1, 2, 3};
+        final int[] expected = { 1, 2, 3 };
         for (int i = 0; i < 2; i++) {
             assertEquals(test.get(i), expected[i]);
         }
     }
-    
+
     @DisplayName("学習用テスト2 List")
     void testConstrainedIntegerList() {
         final List<ConstrainedInteger> test = new ArrayList<ConstrainedInteger>();
@@ -82,31 +107,10 @@ class SingleInsertionTest {
         expected.add(1);
         expected.add(2);
         expected.add(3);
-        
+
         for (int i = 0; i < 2; i++) {
             assertEquals(test.get(i).getValue(), expected.get(i));
         }
     }
-    
-//    N K Q
-//    A_1
-//    ...
-//    A_N
-//
-//
-//    ・1 行目では、配列 A の要素数 N と整数 K , Q が半角スペース区切りで与えられます。
-//    ・続く N 行では、配列 A の要素が先頭から順に与えられます。
-//
-//    入力値最終行の末尾に改行が１つ入ります。
-//    A_1
-//    ...
-//    A_{N+1}
-//
-//
-//    ・Q を A_K の後ろに挿入した後の配列の各要素を先頭から改行区切りで出力してください。
-//    ・また、出力の末尾には改行を入れてください。
-//    ・1 ≦ N ≦ 100,000
-//    ・1 ≦ K ≦ N
-//    ・0 ≦ Q ≦ 100
-//    ・0 ≦ A_i ≦ 100 (1 ≦ i ≦ N)
+
 }

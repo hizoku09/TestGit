@@ -1,6 +1,7 @@
 package query_primer.single_insertion;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import valueobjects.ConstrainedInteger;
@@ -20,13 +21,14 @@ final class SingleInsertionCalculator {
             final ConstrainedInteger insertionIndex,
             final ConstrainedInteger insertionValue) {
 
-        final List<Integer> result = new ArrayList<Integer>();
+        final List<Integer> convertInteger = new ArrayList<>();
         
         validateInsertionIndex(insertionIndex, sourceValues.size());
         for (ConstrainedInteger original : sourceValues) {
-            result.add(original.getValue());
+            convertInteger.add(original.getValue());
         }
-        result.add(insertionIndex.getValue(), insertionValue.getValue());
+        convertInteger.add(insertionIndex.getValue(), insertionValue.getValue());
+        final List<Integer> result = Collections.unmodifiableList(convertInteger);
 
         return result;
     }
