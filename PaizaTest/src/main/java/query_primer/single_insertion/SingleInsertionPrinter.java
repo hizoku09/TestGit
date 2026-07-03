@@ -10,7 +10,7 @@ final class SingleInsertionPrinter {
         this.out = out;
     }
     
-    public static SingleInsertionPrinter newInstance(final PrintStream out) {
+    static SingleInsertionPrinter newInstance(final PrintStream out) {
         return new SingleInsertionPrinter(out);
     }
 

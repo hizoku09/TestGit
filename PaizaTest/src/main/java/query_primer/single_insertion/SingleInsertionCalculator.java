@@ -12,7 +12,7 @@ final class SingleInsertionCalculator {
         // TODO 自動生成されたコンストラクター・スタブ
     }
     
-    public static SingleInsertionCalculator getInstance() {
+    static SingleInsertionCalculator getInstance() {
         return INSTANCE;
     }
     

@@ -2,12 +2,8 @@ package query_primer.single_insertion;
 
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import valueobjects.ConstrainedInteger;
-import valueobjects.IntRange;
 
 class SingleInsertion {
     public static void main(String[] args) {
@@ -37,20 +33,17 @@ class SingleInsertion {
 //  ・0 ≦ A_i ≦ 100 (1 ≦ i ≦ N)
 
     static void run(final InputStream input, final PrintStream output) {
-        try (Scanner sc = new Scanner(input)) {
-            final SingleInsertionCalculator calculator = SingleInsertionCalculator.getInstance();
-            final SingleInsertionPrinter printer = SingleInsertionPrinter.newInstance(output);
-            final IntRange oneTo100_000 = new IntRange(1, 100_000);
-            final ConstrainedInteger elementsN = new ConstrainedInteger(sc.nextInt(), oneTo100_000);
-            final ConstrainedInteger insertionIndexK = new ConstrainedInteger(sc.nextInt(), oneTo100_000);
-            final IntRange zeroTo100 = new IntRange(0, 100);
-            final ConstrainedInteger insertionValueQ = new ConstrainedInteger(sc.nextInt(), zeroTo100);
-            final List<ConstrainedInteger> listA = new ArrayList<>();
-            for (int i = 0; i < elementsN.getValue(); i++) {
-                listA.add(new ConstrainedInteger(sc.nextInt(), zeroTo100));
-            }
+        try (Scanner scanner = new Scanner(input)) {
+            final SingleInsertionInputReader    reader     = SingleInsertionInputReader.newInstance(scanner);
+            final SingleInsertionInput          inputData  = reader.read();
+            final SingleInsertionCalculator     calculator = SingleInsertionCalculator.getInstance();
+            final SingleInsertionPrinter        printer    = SingleInsertionPrinter.newInstance(output);
+            
+            final List<Integer> result = calculator.insertAt(
+                    inputData.sourceValues(),
+                    inputData.insertionIndexK(),
+                    inputData.insertionValueQ());
 
-            final List<Integer> result = calculator.insertAt(listA, insertionIndexK, insertionValueQ);
             printer.printSingleInsertion(result);
         }
     }

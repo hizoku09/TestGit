@@ -1,6 +1,7 @@
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
@@ -14,19 +15,16 @@ public class Main {
 
     static void run(final InputStream input, final PrintStream output) {
         try (Scanner sc = new Scanner(input)) {
-            final SingleInsertionCalculator calculator = new SingleInsertionCalculator();
-            final SingleInsertionPrinter printer = SingleInsertionPrinter.newInstance(output);
-            final IntRange oneTo100_000 = new IntRange(1, 100000);
-            final ConstrainedInteger n = new ConstrainedInteger(sc.nextInt(), oneTo100_000);
-            final ConstrainedInteger k = new ConstrainedInteger(sc.nextInt(), oneTo100_000);
-            final IntRange zeroTo100 = new IntRange(0, 100);
-            final ConstrainedInteger q = new ConstrainedInteger(sc.nextInt(), zeroTo100);
-            final List<ConstrainedInteger> a = new ArrayList<ConstrainedInteger>();
-            for (int i = 0; i < n.getValue(); i++) {
-                a.add(new ConstrainedInteger(sc.nextInt(), zeroTo100));
-            }
+            final SingleInsertionFetcher    fetcher    = SingleInsertionFetcher.newInstance(input);
+            final SingleInsertionInput      fetched    = fetcher.fetch();
+            final SingleInsertionCalculator calculator = SingleInsertionCalculator.getInstance();
+            final SingleInsertionPrinter    printer    = SingleInsertionPrinter.newInstance(output);
+            
+            final List<Integer> result = calculator.insertAt(
+                    fetched.sourceValues(),
+                    fetched.insertionIndexK(),
+                    fetched.insertionValueQ());
 
-            final List<Integer> result = calculator.insertAt(a, k, q);
             printer.printSingleInsertion(result);
         }
     }
@@ -34,18 +32,28 @@ public class Main {
 }
 
 final class SingleInsertionCalculator {
+    private static final SingleInsertionCalculator INSTANCE = new SingleInsertionCalculator();
+    private SingleInsertionCalculator() {
+        // TODO 自動生成されたコンストラクター・スタブ
+    }
+    
+    static SingleInsertionCalculator getInstance() {
+        return INSTANCE;
+    }
+    
     List<Integer> insertAt(
             final List<ConstrainedInteger> sourceValues,
             final ConstrainedInteger insertionIndex,
             final ConstrainedInteger insertionValue) {
 
-        final List<Integer> result = new ArrayList<Integer>();
+        final List<Integer> convertInteger = new ArrayList<>();
         
         validateInsertionIndex(insertionIndex, sourceValues.size());
         for (ConstrainedInteger original : sourceValues) {
-            result.add(original.getValue());
+            convertInteger.add(original.getValue());
         }
-        result.add(insertionIndex.getValue(), insertionValue.getValue());
+        convertInteger.add(insertionIndex.getValue(), insertionValue.getValue());
+        final List<Integer> result = Collections.unmodifiableList(convertInteger);
 
         return result;
     }
@@ -78,6 +86,86 @@ final class SingleInsertionPrinter {
         }
     }
 
+}
+
+final class SingleInsertionFetcher {
+    private final InputStream in;
+
+    private SingleInsertionFetcher(final InputStream in) {
+        this.in = in;
+    }
+
+    static SingleInsertionFetcher newInstance(final InputStream in) {
+        return new SingleInsertionFetcher(in);
+    }
+
+    SingleInsertionInput fetch() {
+        // TODO 自動生成されたメソッド・スタブ
+        try (Scanner sc = new Scanner(in)) {
+            final IntRange oneTo100_000 = new IntRange(1, 100_000);
+            final IntRange zeroTo100    = new IntRange(0, 100);
+            final ConstrainedInteger elementsN       = new ConstrainedInteger(sc.nextInt(), oneTo100_000);
+            final ConstrainedInteger insertionIndexK = new ConstrainedInteger(sc.nextInt(), oneTo100_000);
+            final ConstrainedInteger insertionValueQ = new ConstrainedInteger(sc.nextInt(), zeroTo100);
+            List<ConstrainedInteger> sourceValues = new ArrayList<ConstrainedInteger>();
+            for (int i = 0; i < elementsN.getValue(); i++) {
+                sourceValues.add(new ConstrainedInteger(sc.nextInt(), zeroTo100));
+            }
+            
+            sourceValues = Collections.unmodifiableList(sourceValues);
+            final SingleInsertionInput result = SingleInsertionInput.newInstance(elementsN, insertionIndexK, insertionValueQ, sourceValues);
+            
+            return result;
+        }
+    }
+}
+
+final class SingleInsertionInput {
+    private final ConstrainedInteger elementsN;
+    private final ConstrainedInteger insertionIndexK;
+    private final ConstrainedInteger insertionValueQ;
+    private final List<ConstrainedInteger> sourceValues;
+    
+    private SingleInsertionInput(
+            final ConstrainedInteger elementsN, 
+            final ConstrainedInteger insertionIndexK, 
+            final ConstrainedInteger insertionValueQ,
+            final List<ConstrainedInteger> sourceValues) {
+        
+        this.elementsN       = elementsN;
+        this.insertionIndexK = insertionIndexK;
+        this.insertionValueQ = insertionValueQ;
+        this.sourceValues    = List.copyOf(sourceValues);;
+    }
+
+    static SingleInsertionInput newInstance(
+            final ConstrainedInteger elementsN, 
+            final ConstrainedInteger insertionIndexK, 
+            final ConstrainedInteger insertionValueQ,
+            final List<ConstrainedInteger> sourceValues) {
+        
+        return new SingleInsertionInput(elementsN, insertionIndexK, insertionValueQ, sourceValues);
+    }
+
+    ConstrainedInteger elementsN() {
+        // TODO 自動生成されたメソッド・スタブ
+        return elementsN;
+    }
+
+    ConstrainedInteger insertionIndexK() {
+        // TODO 自動生成されたメソッド・スタブ
+        return insertionIndexK;
+    }
+
+    ConstrainedInteger insertionValueQ() {
+        // TODO 自動生成されたメソッド・スタブ
+        return insertionValueQ;
+    }
+
+    List<ConstrainedInteger> sourceValues() {
+        // TODO 自動生成されたメソッド・スタブ
+        return sourceValues;
+    }
 }
 
 final class IntRange {
