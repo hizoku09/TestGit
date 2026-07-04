@@ -19,7 +19,7 @@ final class SingleInsertionInput {
         this.elementsN       = elementsN;
         this.insertionIndexK = insertionIndexK;
         this.insertionValueQ = insertionValueQ;
-        this.sourceValues    = List.copyOf(sourceValues);;
+        this.sourceValues    = List.copyOf(sourceValues);
     }
 
     static SingleInsertionInput newInstance(
@@ -32,22 +32,18 @@ final class SingleInsertionInput {
     }
 
     ConstrainedInteger elementsN() {
-        // TODO 自動生成されたメソッド・スタブ
         return elementsN;
     }
 
     ConstrainedInteger insertionIndexK() {
-        // TODO 自動生成されたメソッド・スタブ
         return insertionIndexK;
     }
 
     ConstrainedInteger insertionValueQ() {
-        // TODO 自動生成されたメソッド・スタブ
         return insertionValueQ;
     }
 
     List<ConstrainedInteger> sourceValues() {
-        // TODO 自動生成されたメソッド・スタブ
         return sourceValues;
     }
 }

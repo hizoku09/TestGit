@@ -40,9 +40,9 @@ class SingleInsertion {
             final SingleInsertionPrinter        printer    = SingleInsertionPrinter.newInstance(output);
             
             final List<Integer> result = calculator.insertAt(
-                    inputData.sourceValues(),
                     inputData.insertionIndexK(),
-                    inputData.insertionValueQ());
+                    inputData.insertionValueQ(),
+                    inputData.sourceValues());
 
             printer.printSingleInsertion(result);
         }

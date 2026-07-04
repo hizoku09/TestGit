@@ -8,18 +8,16 @@ import valueobjects.ConstrainedInteger;
 
 final class SingleInsertionCalculator {
     private static final SingleInsertionCalculator INSTANCE = new SingleInsertionCalculator();
-    private SingleInsertionCalculator() {
-        // TODO 自動生成されたコンストラクター・スタブ
-    }
+    private SingleInsertionCalculator() {}
     
     static SingleInsertionCalculator getInstance() {
         return INSTANCE;
     }
     
     List<Integer> insertAt(
-            final List<ConstrainedInteger> sourceValues,
             final ConstrainedInteger insertionIndex,
-            final ConstrainedInteger insertionValue) {
+            final ConstrainedInteger insertionValue,
+            final List<ConstrainedInteger> sourceValues) {
 
         final List<Integer> convertInteger = new ArrayList<>();
         

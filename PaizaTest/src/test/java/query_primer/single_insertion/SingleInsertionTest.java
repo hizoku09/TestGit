@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
@@ -87,7 +86,7 @@ class SingleInsertionTest {
     
     @Test
     @DisplayName("標準入力取得テスト")
-    void fetchesAllInputValues() {
+    void readAllInputValues() {
         in.inputText("""
                 3 1 57
                 17
@@ -96,8 +95,8 @@ class SingleInsertionTest {
                 """);
 
         try (Scanner scanner = new Scanner(in)) {
-            final SingleInsertionInputReader fetcher = SingleInsertionInputReader.newInstance(scanner);
-            final SingleInsertionInput actual = fetcher.read();
+            final SingleInsertionInputReader reader = SingleInsertionInputReader.newInstance(scanner);
+            final SingleInsertionInput actual = reader.read();
 
             assertEquals( 3, actual.elementsN().getValue());
             assertEquals( 1, actual.insertionIndexK().getValue());
@@ -106,37 +105,6 @@ class SingleInsertionTest {
             assertEquals(17, actual.sourceValues().get(0).getValue());
             assertEquals(57, actual.sourceValues().get(1).getValue());
             assertEquals(83, actual.sourceValues().get(2).getValue());
-        }
-    }
-
-    @Test
-    @DisplayName("学習用テスト List")
-    void testList() {
-        final List<Integer> test = new ArrayList<Integer>();
-        test.add(1);
-        test.add(2);
-        test.add(3);
-        final int[] expected = { 1, 2, 3 };
-        for (int i = 0; i < 3; i++) {
-            assertEquals(test.get(i), expected[i]);
-        }
-    }
-
-    @Test
-    @DisplayName("学習用テスト2 List")
-    void testConstrainedIntegerList() {
-        final List<ConstrainedInteger> test = new ArrayList<ConstrainedInteger>();
-        final IntRange zeroTo100 = new IntRange(0, 100);
-        test.add(new ConstrainedInteger(1, zeroTo100));
-        test.add(new ConstrainedInteger(2, zeroTo100));
-        test.add(new ConstrainedInteger(3, zeroTo100));
-        final List<Integer> expected = new ArrayList<Integer>();
-        expected.add(1);
-        expected.add(2);
-        expected.add(3);
-
-        for (int i = 0; i < 3; i++) {
-            assertEquals(test.get(i).getValue(), expected.get(i));
         }
     }
 
