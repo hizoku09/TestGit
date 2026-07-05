@@ -15,8 +15,8 @@ final class SingleInsertionCalculator {
     }
     
     List<Integer> insertAt(
-            final ConstrainedInteger insertionIndex,
-            final ConstrainedInteger insertionValue,
+            final IntegerInsertionIndexK insertionIndex,
+            final IntegerInsertionValueQ insertionValue,
             final List<ConstrainedInteger> sourceValues) {
 
         final List<Integer> convertInteger = new ArrayList<>();
@@ -32,7 +32,7 @@ final class SingleInsertionCalculator {
     }
     
     private void validateInsertionIndex(
-            final ConstrainedInteger insertionIndex,
+            final IntegerInsertionIndexK insertionIndex,
             final int sourceLength) {
 
         if (insertionIndex.getValue() < 0 || insertionIndex.getValue() > sourceLength) {

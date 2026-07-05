@@ -70,9 +70,9 @@ class SingleInsertionTest {
                         new ConstrainedInteger(57, zeroTo100),
                         new ConstrainedInteger(83, zeroTo100));
         final SingleInsertionInput input = SingleInsertionInput.newInstance(
-                new ConstrainedInteger(3, oneTo100_000),
-                new ConstrainedInteger(1, oneTo100_000), 
-                new ConstrainedInteger(57, zeroTo100),
+                IntegerElementsN.newInstance(3, oneTo100_000),
+                IntegerInsertionIndexK.newInstance(1, oneTo100_000), 
+                IntegerInsertionValueQ.newInstance(57, zeroTo100),
                 sourceValues);
 
         assertEquals( 3, input.elementsN().getValue());

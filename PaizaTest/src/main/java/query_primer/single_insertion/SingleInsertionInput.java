@@ -5,15 +5,15 @@ import java.util.List;
 import valueobjects.ConstrainedInteger;
 
 final class SingleInsertionInput {
-    private final ConstrainedInteger elementsN;
-    private final ConstrainedInteger insertionIndexK;
-    private final ConstrainedInteger insertionValueQ;
+    private final IntegerElementsN       elementsN;
+    private final IntegerInsertionIndexK insertionIndexK;
+    private final IntegerInsertionValueQ insertionValueQ;
     private final List<ConstrainedInteger> sourceValues;
     
     private SingleInsertionInput(
-            final ConstrainedInteger elementsN, 
-            final ConstrainedInteger insertionIndexK, 
-            final ConstrainedInteger insertionValueQ,
+            final IntegerElementsN       elementsN, 
+            final IntegerInsertionIndexK insertionIndexK, 
+            final IntegerInsertionValueQ insertionValueQ,
             final List<ConstrainedInteger> sourceValues) {
         
         this.elementsN       = elementsN;
@@ -23,23 +23,23 @@ final class SingleInsertionInput {
     }
 
     static SingleInsertionInput newInstance(
-            final ConstrainedInteger elementsN, 
-            final ConstrainedInteger insertionIndexK, 
-            final ConstrainedInteger insertionValueQ,
+            final IntegerElementsN       elementsN, 
+            final IntegerInsertionIndexK insertionIndexK, 
+            final IntegerInsertionValueQ insertionValueQ,
             final List<ConstrainedInteger> sourceValues) {
         
         return new SingleInsertionInput(elementsN, insertionIndexK, insertionValueQ, sourceValues);
     }
 
-    ConstrainedInteger elementsN() {
+    IntegerElementsN elementsN() {
         return elementsN;
     }
 
-    ConstrainedInteger insertionIndexK() {
+    IntegerInsertionIndexK insertionIndexK() {
         return insertionIndexK;
     }
 
-    ConstrainedInteger insertionValueQ() {
+    IntegerInsertionValueQ insertionValueQ() {
         return insertionValueQ;
     }
 
